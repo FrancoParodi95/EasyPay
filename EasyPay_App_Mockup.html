@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EasyPay — App Mockup</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'DM Sans',sans-serif;background:#F0EEE9;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:24px 16px 40px}
+.title-bar{text-align:center;margin-bottom:20px}
+.title-bar h1{font-size:13px;font-weight:500;color:#888;letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px}
+.title-bar p{font-size:11px;color:#bbb}
+.device-outer{width:320px;background:#1a1a1a;border-radius:48px;padding:10px;border:1px solid #2a2a2a;box-shadow:0 20px 60px rgba(0,0,0,0.25)}
+.device-inner{width:300px;background:#000;border-radius:40px;overflow:hidden;position:relative}
+.island{width:90px;height:26px;background:#000;border-radius:13px;position:absolute;top:10px;left:50%;transform:translateX(-50%);z-index:20;border:2px solid #1a1a1a}
+.screen-area{width:300px;height:644px;overflow:hidden;position:relative;border-radius:40px}
+.screen{width:300px;height:644px;overflow-y:auto;overflow-x:hidden;display:none;flex-direction:column;background:#F2F2F2;scrollbar-width:none}
+.screen::-webkit-scrollbar{display:none}
+.screen.active{display:flex}
+
+/* NAV PILLS */
+.nav-pills{display:flex;gap:7px;flex-wrap:wrap;justify-content:center;margin-top:16px;max-width:340px}
+.np{font-family:'DM Sans',sans-serif;font-size:10px;font-weight:500;padding:6px 13px;border-radius:20px;border:0.5px solid #ccc;background:#fff;cursor:pointer;color:#555;transition:all .15s}
+.np:hover{background:#0A1628;color:#7BC8A4;border-color:#0A1628}
+.np.on{background:#0A1628;color:#7BC8A4;border-color:#0A1628}
+
+/* SHARED COMPONENTS */
+.sb{background:#0A1628;display:flex;justify-content:space-between;align-items:center;padding:48px 20px 6px;font-size:11px;color:#7B9FD4;font-weight:500;flex-shrink:0}
+.hdr{background:#0A1628;padding:12px 18px 16px;flex-shrink:0}
+.hdr-t{font-size:16px;font-weight:600;color:#fff;margin-bottom:2px}
+.hdr-s{font-size:11px;color:#7B9FD4}
+.body{padding:12px 14px 90px;background:#F2F2F2;flex:1}
+.card{background:#fff;border-radius:14px;border:0.5px solid #e8e8e8;padding:12px 14px;margin-bottom:9px}
+.sec{font-size:10px;font-weight:500;color:#999;letter-spacing:.07em;text-transform:uppercase;margin-bottom:8px;margin-top:4px}
+.pill{display:inline-flex;align-items:center;gap:3px;font-size:10px;font-weight:500;border-radius:20px;padding:3px 9px}
+.pill.g{background:#E1F5EE;color:#085041}
+.pill.b{background:#E6F1FB;color:#0C447C}
+.pill.a{background:#FAEEDA;color:#633806}
+.pill.s{background:#F0F0F0;color:#444}
+.cta{background:#1566C0;border-radius:14px;padding:14px;text-align:center;font-size:13px;font-weight:600;color:#fff;margin-top:10px;cursor:pointer}
+.cta:active{opacity:.85}
+.ghost{background:rgba(10,22,40,0.06);border-radius:14px;padding:12px;text-align:center;font-size:12px;font-weight:500;color:#1566C0;margin-top:7px;cursor:pointer}
+
+/* BOTTOM NAV */
+.bot-nav{width:300px;background:#fff;border-top:0.5px solid #e8e8e8;display:flex;padding:10px 0 20px;flex-shrink:0;position:sticky;bottom:0}
+.ni{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;cursor:pointer}
+.ni-lbl{font-size:9px;color:#aaa;font-weight:500}
+.ni-lbl.on{color:#1566C0}
+
+/* ONBOARDING */
+.ob-r{display:flex;align-items:flex-start;gap:12px;padding:12px 0}
+.ob-r+.ob-r{border-top:0.5px solid rgba(255,255,255,.08)}
+.ob-n{width:22px;height:22px;border-radius:50%;background:rgba(123,200,164,.15);border:0.5px solid #7BC8A4;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:10px;font-weight:600;color:#7BC8A4}
+.ob-tt{font-size:12px;font-weight:500;color:#fff}
+.ob-ss{font-size:10px;color:#7B9FD4;margin-top:2px}
+
+/* LOGIN */
+.face-box{width:58px;height:58px;border-radius:16px;background:#0A1628;display:flex;align-items:center;justify-content:center;margin:6px auto 10px}
+.inp{background:#fff;border:0.5px solid #ddd;border-radius:10px;padding:10px 13px;font-size:12px;color:#1a1a1a;margin-bottom:8px;display:flex;justify-content:space-between;align-items:center}
+.ph{color:#bbb}
+.div-r{display:flex;align-items:center;gap:8px;margin:8px 0}
+.div-l{flex:1;height:0.5px;background:#eee}
+.div-t{font-size:10px;color:#bbb}
+
+/* REGISTER */
+.step-bar{display:flex;gap:4px;margin-bottom:14px}
+.seg{flex:1;height:3px;border-radius:2px}
+.seg.done{background:#1566C0}
+.seg.act{background:#7BC8A4}
+.seg.todo{background:#ddd}
+.card-vis{background:#0A1628;border-radius:14px;padding:14px 16px;margin-bottom:12px}
+.chip{width:24px;height:17px;background:#F9C46A;border-radius:4px;margin-bottom:12px}
+.card-num{font-size:11px;color:#7B9FD4;letter-spacing:3px;margin-bottom:10px}
+.card-meta{display:flex;justify-content:space-between}
+.card-name{font-size:11px;font-weight:500;color:#fff}
+.card-exp{font-size:10px;color:#7B9FD4}
+.secure-row{display:flex;align-items:center;gap:8px;background:#E1F5EE;border-radius:10px;padding:8px 11px;margin:8px 0 12px}
+
+/* SERVICES */
+.toggle-tr{width:34px;height:20px;border-radius:10px;background:#0A1628;display:flex;align-items:center;padding:3px;flex-shrink:0;margin-left:auto}
+.toggle-th{width:14px;height:14px;border-radius:50%;background:#7BC8A4;margin-left:auto}
+.toggle-tr.off{background:#ddd}
+.toggle-th.off{background:#fff;margin-left:0}
+.svc-it{display:flex;align-items:center;gap:10px;padding:11px 0}
+.svc-it+.svc-it{border-top:0.5px solid #f5f5f5}
+.svc-ico{width:36px;height:36px;border-radius:11px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.svc-tt{font-size:12px;font-weight:500;color:#1a1a1a}
+.svc-ss{font-size:10px;color:#999}
+
+/* HOME */
+.home-hdr{background:#0A1628;padding:12px 18px 16px;flex-shrink:0}
+.hw{background:rgba(255,255,255,.07);border-radius:13px;padding:12px 14px;display:flex;justify-content:space-between;align-items:center}
+.hw-lbl{font-size:10px;color:#7B9FD4;margin-bottom:2px}
+.hw-v{font-size:24px;font-weight:600;color:#fff}
+.hw-saves{font-size:10px;color:#7BC8A4;font-weight:500}
+.hw-sv{font-size:14px;font-weight:600;color:#7BC8A4}
+.stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px}
+.stat-c{background:#fff;border-radius:12px;border:0.5px solid #e8e8e8;padding:10px 12px}
+.stat-ico{width:24px;height:24px;border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:6px}
+.stat-lbl{font-size:10px;color:#999;margin-bottom:2px}
+.stat-v{font-size:15px;font-weight:600;color:#1a1a1a}
+.stat-sub{font-size:9px;color:#bbb}
+.svc-row{display:flex;gap:7px;margin-bottom:10px}
+.svc-mini{flex:1;background:#fff;border-radius:11px;border:0.5px solid #e8e8e8;padding:9px 6px;text-align:center}
+.svc-mini-ico{width:28px;height:28px;border-radius:9px;display:flex;align-items:center;justify-content:center;margin:0 auto 5px}
+.svc-mini-lbl{font-size:10px;font-weight:500;color:#1a1a1a}
+.tx-r{display:flex;justify-content:space-between;align-items:center;padding:9px 0}
+.tx-r+.tx-r{border-top:0.5px solid #f5f5f5}
+.tx-l{display:flex;align-items:center;gap:8px}
+.tx-ico{width:28px;height:28px;border-radius:9px;display:flex;align-items:center;justify-content:center}
+.tx-n{font-size:12px;font-weight:500;color:#1a1a1a}
+.tx-t{font-size:10px;color:#bbb}
+.tx-a{font-size:12px;font-weight:600;color:#1a1a1a}
+
+/* HISTORY */
+.filter-row{display:flex;gap:6px;margin-bottom:10px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
+.filter-row::-webkit-scrollbar{display:none}
+.fp{font-size:10px;font-weight:500;padding:5px 12px;border-radius:20px;border:0.5px solid #ddd;color:#888;background:#fff;white-space:nowrap;cursor:pointer}
+.fp.on{background:#0A1628;color:#7BC8A4;border-color:#0A1628}
+.total-bar{background:#fff;border:0.5px solid #e8e8e8;border-radius:12px;padding:11px 13px;display:flex;justify-content:space-between;margin-bottom:10px}
+.total-lbl{font-size:10px;color:#999}
+.total-v{font-size:14px;font-weight:600;color:#1a1a1a}
+.total-vs{font-size:14px;font-weight:600;color:#085041}
+.month-h{font-size:10px;font-weight:500;color:#aaa;text-transform:uppercase;letter-spacing:.06em;padding:8px 0 4px}
+.tx-f{display:flex;justify-content:space-between;align-items:center;padding:10px 0}
+.tx-f+.tx-f{border-top:0.5px solid #f5f5f5}
+.tx-fl{display:flex;align-items:center;gap:9px}
+.tx-fn{font-size:12px;font-weight:500;color:#1a1a1a}
+.tx-fm{font-size:10px;color:#bbb}
+.tx-fa{font-size:13px;font-weight:600;color:#1a1a1a}
+.tx-fs{font-size:10px;color:#085041;font-weight:500}
+
+/* LOYALTY */
+.loy-hdr{background:#0A1628;padding:12px 18px 16px;flex-shrink:0}
+.loy-card{background:rgba(255,255,255,.08);border-radius:14px;padding:14px}
+.loy-top{display:flex;align-items:center;gap:11px;margin-bottom:11px}
+.loy-medal{width:44px;height:44px;border-radius:13px;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center}
+.loy-name{font-size:16px;font-weight:600;color:#fff}
+.loy-sub{font-size:10px;color:#7B9FD4;margin-top:1px}
+.prog-track{background:rgba(255,255,255,.12);border-radius:4px;height:6px;margin-bottom:5px}
+.prog-fill{height:6px;border-radius:4px;background:#7BC8A4}
+.prog-lbl{display:flex;justify-content:space-between;font-size:10px;color:#7B9FD4}
+.tier-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:7px;margin-bottom:10px}
+.tier-c{border-radius:11px;padding:10px 8px;border:0.5px solid #e8e8e8;background:#fff;text-align:center}
+.tier-c.cur{border:1.5px solid #7BC8A4;background:#F0FCF6}
+.tier-name{font-size:11px;font-weight:600;margin-bottom:2px}
+.tier-req{font-size:9px;color:#bbb}
+.ben-it{display:flex;align-items:flex-start;gap:10px;padding:10px 0}
+.ben-it+.ben-it{border-top:0.5px solid #f5f5f5}
+.ben-ico{width:30px;height:30px;border-radius:9px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.ben-t{font-size:12px;font-weight:500;color:#1a1a1a}
+.ben-s{font-size:10px;color:#999;margin-top:1px}
+.ben-b{margin-left:auto;flex-shrink:0;padding-top:1px}
+</style>
+</head>
+<body>
+
+<div class="title-bar">
+  <h1>EasyPay — App Mockup</h1>
+  <p>Toca los botones para navegar entre pantallas</p>
+</div>
+
+<div class="device-outer">
+  <div class="device-inner">
+    <div class="island"></div>
+    <div class="screen-area">
+
+      <!-- SCREEN 1: ONBOARDING -->
+      <div class="screen active" id="s-ob" style="background:#0A1628">
+        <div style="background:#0A1628;padding:52px 20px 20px;flex-shrink:0">
+          <div style="text-align:center;margin-bottom:20px">
+            <div style="font-size:11px;font-weight:500;color:#7B9FD4;letter-spacing:.1em;margin-bottom:8px">EASYPAY</div>
+            <div style="font-size:20px;font-weight:600;color:#fff;line-height:1.3">Paga en movimiento.<br>Sin fricciones.</div>
+            <div style="font-size:11px;color:#7B9FD4;margin-top:6px">La app que conduce contigo</div>
+          </div>
+          <div style="padding:0 4px">
+            <div class="ob-r">
+              <div class="ob-n">1</div>
+              <div><div class="ob-tt">Registra tu tarjeta</div><div class="ob-ss">Vincula tu método de pago en segundos</div></div>
+            </div>
+            <div class="ob-r">
+              <div class="ob-n">2</div>
+              <div><div class="ob-tt">Activa tus servicios</div><div class="ob-ss">Peajes, gasolina, parking, drive-thru</div></div>
+            </div>
+            <div class="ob-r">
+              <div class="ob-n">3</div>
+              <div><div class="ob-tt">La cámara detecta tu placa</div><div class="ob-ss">Tecnología LPR — sin hacer nada</div></div>
+            </div>
+            <div class="ob-r">
+              <div class="ob-n">4</div>
+              <div><div class="ob-tt">Confirma con un tap</div><div class="ob-ss">Push notification → pago automático</div></div>
+            </div>
+          </div>
+        </div>
+        <div style="padding:0 16px 36px;background:#0A1628;flex-shrink:0">
+          <div class="cta" onclick="go('login')">Comenzar →</div>
+          <div class="ghost" onclick="go('login')">Ya tengo cuenta</div>
+        </div>
+      </div>
+
+      <!-- SCREEN 2: LOGIN -->
+      <div class="screen" id="s-login">
+        <div style="background:#0A1628;padding:52px 20px 24px;text-align:center;flex-shrink:0">
+          <div style="font-size:26px;font-weight:700;color:#fff;letter-spacing:-0.5px;margin-bottom:3px">EasyPay</div>
+          <div style="font-size:11px;color:#7B9FD4">Bienvenido de vuelta</div>
+        </div>
+        <div class="body" style="padding-bottom:20px">
+          <div class="face-box">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+              <rect x="3" y="3" width="4" height="2" rx="1" fill="#7BC8A4"/>
+              <rect x="17" y="3" width="4" height="2" rx="1" fill="#7BC8A4"/>
+              <rect x="3" y="19" width="4" height="2" rx="1" fill="#7BC8A4"/>
+              <rect x="17" y="19" width="4" height="2" rx="1" fill="#7BC8A4"/>
+              <circle cx="9" cy="10" r="1.5" fill="#7BC8A4"/>
+              <circle cx="15" cy="10" r="1.5" fill="#7BC8A4"/>
+              <path d="M9 15 Q12 17.5 15 15" stroke="#7BC8A4" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+              <line x1="12" y1="12" x2="12" y2="14" stroke="#7BC8A4" stroke-width="1" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div style="text-align:center;font-size:13px;font-weight:500;color:#1a1a1a;margin-bottom:2px">Entrar con Face ID</div>
+          <div style="text-align:center;font-size:10px;color:#999;margin-bottom:14px">Toca para autenticarte</div>
+          <div class="div-r"><div class="div-l"></div><div class="div-t">o ingresa con email</div><div class="div-l"></div></div>
+          <div class="inp"><span class="ph">correo@ejemplo.com</span></div>
+          <div class="inp"><span class="ph">••••••••</span></div>
+          <div style="text-align:right;margin-bottom:12px"><span style="font-size:10px;color:#185FA5">¿Olvidaste tu contraseña?</span></div>
+          <div class="cta" onclick="go('register')">Iniciar sesión</div>
+          <div style="text-align:center;font-size:10px;color:#bbb;margin-top:10px">¿No tienes cuenta? <span style="color:#185FA5;font-weight:500;cursor:pointer" onclick="go('register')">Regístrate</span></div>
+        </div>
+      </div>
+
+      <!-- SCREEN 3: REGISTER -->
+      <div class="screen" id="s-register">
+        <div class="sb" style="padding-top:52px"></div>
+        <div class="hdr">
+          <div style="font-size:10px;color:#7B9FD4;margin-bottom:4px;font-weight:500">PASO 2 DE 3</div>
+          <div class="hdr-t">Vincula tu tarjeta</div>
+          <div class="hdr-s">Así pagamos automáticamente por ti</div>
+        </div>
+        <div class="body">
+          <div class="step-bar">
+            <div class="seg done"></div>
+            <div class="seg act"></div>
+            <div class="seg todo"></div>
+          </div>
+          <div class="card-vis">
+            <div class="chip"></div>
+            <div class="card-num">•••• •••• •••• 4521</div>
+            <div class="card-meta">
+              <div class="card-name">Franco Parodi</div>
+              <div class="card-exp">12/27</div>
+            </div>
+          </div>
+          <div class="sec">Datos de la tarjeta</div>
+          <div class="inp"><span class="ph">Número de tarjeta</span></div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px">
+            <div class="inp" style="margin:0">Vencimiento</div>
+            <div class="inp" style="margin:0">CVV</div>
+          </div>
+          <div class="inp">Titular de la tarjeta</div>
+          <div class="secure-row">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><rect x="3" y="11" width="18" height="11" rx="2" stroke="#085041" stroke-width="1.5"/><path d="M7 11V7a5 5 0 0 1 10 0v4" stroke="#085041" stroke-width="1.5" stroke-linecap="round"/></svg>
+            <span style="font-size:10px;color:#085041">Encriptación de 256 bits. Tus datos están seguros.</span>
+          </div>
+          <div class="cta" onclick="go('services')">Confirmar y continuar →</div>
+          <div style="text-align:center;margin-top:9px;font-size:10px;color:#999">También puedes <span style="color:#185FA5;font-weight:500">añadir saldo prepago</span></div>
+        </div>
+      </div>
+
+      <!-- SCREEN 4: SERVICES -->
+      <div class="screen" id="s-services">
+        <div class="sb" style="padding-top:52px"></div>
+        <div class="hdr">
+          <div class="hdr-t">¿Dónde usas EasyPay?</div>
+          <div class="hdr-s">Activa solo donde quieras pago automático</div>
+        </div>
+        <div class="body">
+          <div class="sec">Movilidad</div>
+          <div class="card">
+            <div class="svc-it">
+              <div class="svc-ico" style="background:#1A3A5C"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="2" y="8" width="20" height="9" rx="2" fill="#7BC8A4"/><circle cx="8" cy="17" r="2" fill="#7BC8A4"/><circle cx="16" cy="17" r="2" fill="#7BC8A4"/></svg></div>
+              <div><div class="svc-tt">Peajes</div><div class="svc-ss">Detección automática vía LPR</div></div>
+              <div class="toggle-tr"><div class="toggle-th"></div></div>
+            </div>
+            <div class="svc-it">
+              <div class="svc-ico" style="background:#1A2E4A"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 2C8 2 5 8 5 13a7 7 0 0 0 14 0c0-5-3-11-7-11z" fill="#F9C46A"/><circle cx="12" cy="13" r="2" fill="#0A1628"/></svg></div>
+              <div><div class="svc-tt">Gasolineras</div><div class="svc-ss">GPS + reconocimiento de placa</div></div>
+              <div class="toggle-tr"><div class="toggle-th"></div></div>
+            </div>
+            <div class="svc-it">
+              <div class="svc-ico" style="background:#1A3325"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="3" stroke="#7BC8A4" stroke-width="1.5" fill="none"/><rect x="7" y="8" width="4" height="5" rx="1" fill="#7BC8A4"/><rect x="13" y="8" width="4" height="5" rx="1" fill="#7BC8A4"/></svg></div>
+              <div><div class="svc-tt">Estacionamientos</div><div class="svc-ss">Entrada y salida detectadas</div></div>
+              <div class="toggle-tr"><div class="toggle-th"></div></div>
+            </div>
+          </div>
+          <div class="sec">Consumo</div>
+          <div class="card">
+            <div class="svc-it">
+              <div class="svc-ico" style="background:#2A1A10"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="#EF9F27" stroke-width="1.5" fill="none"/><path d="M8 5V3M16 5V3" stroke="#EF9F27" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+              <div><div class="svc-tt">Drive-thru</div><div class="svc-ss">McDonald's, Burger King y más</div></div>
+              <div class="toggle-tr"><div class="toggle-th"></div></div>
+            </div>
+            <div class="svc-it">
+              <div class="svc-ico" style="background:#1A1A2E"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="2" stroke="#AFA9EC" stroke-width="1.5" fill="none"/><path d="M3 9h18M9 3v18" stroke="#AFA9EC" stroke-width="1" opacity=".5"/></svg></div>
+              <div><div class="svc-tt">Zonas reguladas</div><div class="svc-ss">Tasas urbanas automáticas</div></div>
+              <div class="toggle-tr off"><div class="toggle-th off"></div></div>
+            </div>
+          </div>
+          <div class="cta" onclick="go('home')">Guardar y activar →</div>
+        </div>
+      </div>
+
+      <!-- SCREEN 5: HOME -->
+      <div class="screen" id="s-home">
+        <div class="home-hdr">
+          <div style="padding-top:48px"></div>
+          <div style="font-size:11px;color:#7B9FD4;margin-bottom:2px">Buenos días</div>
+          <div style="font-size:19px;font-weight:600;color:#fff;margin-bottom:13px">Franco</div>
+          <div class="hw">
+            <div><div class="hw-lbl">Saldo disponible</div><div class="hw-v">€45.00</div></div>
+            <div style="text-align:right"><div class="hw-saves">Ahorro este mes</div><div class="hw-sv">€12.40</div></div>
+          </div>
+        </div>
+        <div class="body">
+          <div class="sec">Tu impacto este mes</div>
+          <div class="stat-grid">
+            <div class="stat-c">
+              <div class="stat-ico" style="background:#E1F5EE"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#085041" stroke-width="1.5"/><path d="M12 7v5l3 3" stroke="#085041" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+              <div class="stat-lbl">Tiempo ahorrado</div>
+              <div class="stat-v">47 min</div>
+              <div class="stat-sub">este mes</div>
+            </div>
+            <div class="stat-c">
+              <div class="stat-ico" style="background:#E6F1FB"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 2l3 7h7l-5.5 4.5 2 7L12 17l-6.5 3.5 2-7L2 9h7z" stroke="#185FA5" stroke-width="1.5" stroke-linejoin="round" fill="none"/></svg></div>
+              <div class="stat-lbl">Nivel actual</div>
+              <div class="stat-v">Plata</div>
+              <div class="stat-sub">23 usos</div>
+            </div>
+            <div class="stat-c">
+              <div class="stat-ico" style="background:#FAEEDA"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="#633806" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9" stroke="#633806" stroke-width="1.5"/></svg></div>
+              <div class="stat-lbl">Pagos auto</div>
+              <div class="stat-v">38</div>
+              <div class="stat-sub">sin tocar nada</div>
+            </div>
+            <div class="stat-c">
+              <div class="stat-ico" style="background:#EAF3DE"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M18 6L6 18M6 6l12 12" stroke="#3B6D11" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+              <div class="stat-lbl">Filas evitadas</div>
+              <div class="stat-v">38</div>
+              <div class="stat-sub">este mes</div>
+            </div>
+          </div>
+          <div class="sec">Servicios activos</div>
+          <div class="svc-row">
+            <div class="svc-mini">
+              <div class="svc-mini-ico" style="background:#1A3A5C"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><rect x="2" y="8" width="20" height="9" rx="2" fill="#7BC8A4"/><circle cx="8" cy="17" r="2" fill="#7BC8A4"/><circle cx="16" cy="17" r="2" fill="#7BC8A4"/></svg></div>
+              <div class="svc-mini-lbl">Peajes</div>
+            </div>
+            <div class="svc-mini">
+              <div class="svc-mini-ico" style="background:#1A2E4A"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 2C8 2 5 8 5 13a7 7 0 0 0 14 0c0-5-3-11-7-11z" fill="#F9C46A"/><circle cx="12" cy="13" r="2" fill="#0A1628"/></svg></div>
+              <div class="svc-mini-lbl">Gasolina</div>
+            </div>
+            <div class="svc-mini">
+              <div class="svc-mini-ico" style="background:#1A3325"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="3" stroke="#7BC8A4" stroke-width="1.5" fill="none"/><rect x="7" y="8" width="4" height="5" rx="1" fill="#7BC8A4"/><rect x="13" y="8" width="4" height="5" rx="1" fill="#7BC8A4"/></svg></div>
+              <div class="svc-mini-lbl">Parking</div>
+            </div>
+            <div class="svc-mini">
+              <div class="svc-mini-ico" style="background:#2A1A10"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="#EF9F27" stroke-width="1.5" fill="none"/></svg></div>
+              <div class="svc-mini-lbl">Drive-thru</div>
+            </div>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+            <div class="sec" style="margin:0">Últimos movimientos</div>
+            <span style="font-size:10px;color:#185FA5;font-weight:500;cursor:pointer" onclick="go('history')">Ver todos →</span>
+          </div>
+          <div class="card" style="padding:8px 12px">
+            <div class="tx-r">
+              <div class="tx-l"><div class="tx-ico" style="background:#1A3A5C"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><rect x="2" y="8" width="20" height="9" rx="2" fill="#7BC8A4"/><circle cx="8" cy="17" r="2" fill="#7BC8A4"/><circle cx="16" cy="17" r="2" fill="#7BC8A4"/></svg></div><div><div class="tx-n">Peaje A1 Norte</div><div class="tx-t">Hoy, 08:14</div></div></div>
+              <div class="tx-a">−€2.50</div>
+            </div>
+            <div class="tx-r">
+              <div class="tx-l"><div class="tx-ico" style="background:#1A2E4A"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M12 2C8 2 5 8 5 13a7 7 0 0 0 14 0c0-5-3-11-7-11z" fill="#F9C46A"/><circle cx="12" cy="13" r="2" fill="#0A1628"/></svg></div><div><div class="tx-n">Repsol Lisboa Norte</div><div class="tx-t">Hoy, 07:52</div></div></div>
+              <div class="tx-a">−€45.00</div>
+            </div>
+            <div class="tx-r" style="border-top:0.5px solid #f5f5f5">
+              <div class="tx-l"><div class="tx-ico" style="background:#1A3325"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="3" stroke="#7BC8A4" stroke-width="1.5" fill="none"/><rect x="7" y="8" width="4" height="5" rx="1" fill="#7BC8A4"/><rect x="13" y="8" width="4" height="5" rx="1" fill="#7BC8A4"/></svg></div><div><div class="tx-n">Parking Marquês</div><div class="tx-t">Ayer, 19:30</div></div></div>
+              <div class="tx-a">−€3.00</div>
+            </div>
+          </div>
+        </div>
+        <div class="bot-nav">
+          <div class="ni" onclick="go('home')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M3 12L12 3l9 9" stroke="#1566C0" stroke-width="1.5" stroke-linecap="round"/><path d="M5 10v9h5v-5h4v5h5v-9" stroke="#1566C0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="ni-lbl on">Home</span></div>
+          <div class="ni" onclick="go('history')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2M9 5a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2" stroke="#bbb" stroke-width="1.5" stroke-linecap="round"/></svg><span class="ni-lbl">Historial</span></div>
+          <div class="ni" onclick="go('loyalty')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 2l3 7h7l-5.5 4.5 2 7L12 17l-6.5 3.5 2-7L2 9h7z" stroke="#bbb" stroke-width="1.5" stroke-linejoin="round" fill="none"/></svg><span class="ni-lbl">Rewards</span></div>
+          <div class="ni"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="#bbb" stroke-width="1.5"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" stroke="#bbb" stroke-width="1.5" stroke-linecap="round"/></svg><span class="ni-lbl">Perfil</span></div>
+        </div>
+      </div>
+
+      <!-- SCREEN 6: HISTORY -->
+      <div class="screen" id="s-history">
+        <div class="sb" style="padding-top:52px"></div>
+        <div class="hdr"><div class="hdr-t">Movimientos</div><div class="hdr-s">Todos tus pagos en un lugar</div></div>
+        <div class="body">
+          <div class="filter-row">
+            <div class="fp on">Todos</div>
+            <div class="fp">Peajes</div>
+            <div class="fp">Gasolina</div>
+            <div class="fp">Parking</div>
+            <div class="fp">Drive-thru</div>
+          </div>
+          <div class="total-bar">
+            <div><div class="total-lbl">Total este mes</div><div class="total-v">€127.80</div></div>
+            <div style="text-align:right"><div class="total-lbl">Ahorro acumulado</div><div class="total-vs">€12.40</div></div>
+          </div>
+          <div class="month-h">Hoy</div>
+          <div class="tx-f">
+            <div class="tx-fl"><div class="tx-ico" style="background:#1A3A5C"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><rect x="2" y="8" width="20" height="9" rx="2" fill="#7BC8A4"/><circle cx="8" cy="17" r="2" fill="#7BC8A4"/><circle cx="16" cy="17" r="2" fill="#7BC8A4"/></svg></div><div><div class="tx-fn">Peaje A1 Norte</div><div class="tx-fm">08:14 · Automático</div></div></div>
+            <div style="text-align:right"><div class="tx-fa">−€2.50</div><div class="tx-fs">−€0.25 ahorrado</div></div>
+          </div>
+          <div class="tx-f">
+            <div class="tx-fl"><div class="tx-ico" style="background:#1A2E4A"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M12 2C8 2 5 8 5 13a7 7 0 0 0 14 0c0-5-3-11-7-11z" fill="#F9C46A"/><circle cx="12" cy="13" r="2" fill="#0A1628"/></svg></div><div><div class="tx-fn">Repsol — Lisboa Norte</div><div class="tx-fm">07:52 · 38.2L · Sin parar</div></div></div>
+            <div style="text-align:right"><div class="tx-fa">−€45.00</div><div class="tx-fs">−€2.30 ahorrado</div></div>
+          </div>
+          <div class="month-h">Ayer</div>
+          <div class="tx-f">
+            <div class="tx-fl"><div class="tx-ico" style="background:#1A3325"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="3" stroke="#7BC8A4" stroke-width="1.5" fill="none"/><rect x="7" y="8" width="4" height="5" rx="1" fill="#7BC8A4"/><rect x="13" y="8" width="4" height="5" rx="1" fill="#7BC8A4"/></svg></div><div><div class="tx-fn">Parking Marquês Pombal</div><div class="tx-fm">19:30 · 2h 15min</div></div></div>
+            <div style="text-align:right"><div class="tx-fa">−€3.00</div><div class="tx-fs">−€0.50 ahorrado</div></div>
+          </div>
+          <div class="tx-f">
+            <div class="tx-fl"><div class="tx-ico" style="background:#2A1A10"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="#EF9F27" stroke-width="1.5" fill="none"/></svg></div><div><div class="tx-fn">McDonald's Drive-thru</div><div class="tx-fm">13:10 · Sin bajarse</div></div></div>
+            <div style="text-align:right"><div class="tx-fa">−€8.90</div></div>
+          </div>
+          <div class="month-h">Lunes</div>
+          <div class="tx-f">
+            <div class="tx-fl"><div class="tx-ico" style="background:#1A3A5C"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><rect x="2" y="8" width="20" height="9" rx="2" fill="#7BC8A4"/><circle cx="8" cy="17" r="2" fill="#7BC8A4"/><circle cx="16" cy="17" r="2" fill="#7BC8A4"/></svg></div><div><div class="tx-fn">Peaje IC19</div><div class="tx-fm">08:05 · Automático</div></div></div>
+            <div style="text-align:right"><div class="tx-fa">−€1.80</div><div class="tx-fs">−€0.18 ahorrado</div></div>
+          </div>
+        </div>
+        <div class="bot-nav">
+          <div class="ni" onclick="go('home')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M3 12L12 3l9 9" stroke="#bbb" stroke-width="1.5" stroke-linecap="round"/><path d="M5 10v9h5v-5h4v5h5v-9" stroke="#bbb" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="ni-lbl">Home</span></div>
+          <div class="ni" onclick="go('history')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2M9 5a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2" stroke="#1566C0" stroke-width="1.5" stroke-linecap="round"/></svg><span class="ni-lbl on">Historial</span></div>
+          <div class="ni" onclick="go('loyalty')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 2l3 7h7l-5.5 4.5 2 7L12 17l-6.5 3.5 2-7L2 9h7z" stroke="#bbb" stroke-width="1.5" stroke-linejoin="round" fill="none"/></svg><span class="ni-lbl">Rewards</span></div>
+          <div class="ni"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="#bbb" stroke-width="1.5"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" stroke="#bbb" stroke-width="1.5" stroke-linecap="round"/></svg><span class="ni-lbl">Perfil</span></div>
+        </div>
+      </div>
+
+      <!-- SCREEN 7: LOYALTY -->
+      <div class="screen" id="s-loyalty">
+        <div class="loy-hdr">
+          <div style="padding-top:48px;font-size:10px;font-weight:500;color:#7B9FD4;letter-spacing:.08em;margin-bottom:8px">EASYREWARDS</div>
+          <div class="loy-card">
+            <div class="loy-top">
+              <div class="loy-medal">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" fill="#C0C0C0"/><path d="M12 7l1.5 3.5H17l-2.8 2 1 3.5L12 14l-3.2 2 1-3.5L7 9.5h3.5z" fill="#fff"/></svg>
+              </div>
+              <div>
+                <div class="loy-name">Nivel Plata</div>
+                <div class="loy-sub">23 usos este mes · 7 para llegar a Oro</div>
+              </div>
+            </div>
+            <div class="prog-track"><div class="prog-fill" style="width:77%"></div></div>
+            <div class="prog-lbl"><span>23 usos</span><span>30 → Oro</span></div>
+          </div>
+        </div>
+        <div class="body">
+          <div class="sec">Tu progresión</div>
+          <div class="tier-grid">
+            <div class="tier-c">
+              <div style="font-size:20px;margin-bottom:4px">&#129353;</div>
+              <div class="tier-name" style="color:#7A3A1A">Bronce</div>
+              <div class="tier-req">1–10 usos</div>
+            </div>
+            <div class="tier-c cur">
+              <div style="font-size:20px;margin-bottom:4px">&#129352;</div>
+              <div class="tier-name" style="color:#3a3a3a">Plata</div>
+              <div class="tier-req">11–30 usos</div>
+            </div>
+            <div class="tier-c">
+              <div style="font-size:20px;margin-bottom:4px">&#129351;</div>
+              <div class="tier-name" style="color:#7A5000">Oro</div>
+              <div class="tier-req">30+ usos</div>
+            </div>
+          </div>
+          <div class="sec">Beneficios activos</div>
+          <div class="card" style="padding:8px 12px">
+            <div class="ben-it" style="padding-top:2px">
+              <div class="ben-ico" style="background:#E6F1FB"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 2C8 2 5 8 5 13a7 7 0 0 0 14 0c0-5-3-11-7-11z" fill="#378ADD"/><circle cx="12" cy="13" r="2" fill="#fff"/></svg></div>
+              <div><div class="ben-t">5% dto. en gasolina</div><div class="ben-s">Estaciones asociadas EasyPay</div></div>
+              <div class="ben-b"><span class="pill g">Activo</span></div>
+            </div>
+            <div class="ben-it">
+              <div class="ben-ico" style="background:#EAF3DE"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="3" stroke="#3B6D11" stroke-width="1.5" fill="none"/><rect x="7" y="8" width="4" height="5" rx="1" fill="#3B6D11"/><rect x="13" y="8" width="4" height="5" rx="1" fill="#3B6D11"/></svg></div>
+              <div><div class="ben-t">1h gratis en parking</div><div class="ben-s">Parkings partner EasyPay</div></div>
+              <div class="ben-b"><span class="pill g">Activo</span></div>
+            </div>
+            <div class="ben-it">
+              <div class="ben-ico" style="background:#E1F5EE"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><rect x="2" y="8" width="20" height="9" rx="2" fill="#1D9E75"/><circle cx="8" cy="17" r="2" fill="#1D9E75"/><circle cx="16" cy="17" r="2" fill="#1D9E75"/></svg></div>
+              <div><div class="ben-t">Cada 10 peajes, 1 gratis</div><div class="ben-s">7/10 completados este ciclo</div></div>
+              <div class="ben-b"><span class="pill b">7 de 10</span></div>
+            </div>
+            <div class="ben-it">
+              <div class="ben-ico" style="background:#F0F0F0"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 2l3 7h7l-5.5 4.5 2 7L12 17l-6.5 3.5 2-7L2 9h7z" stroke="#888" stroke-width="1.5" fill="none"/></svg></div>
+              <div><div class="ben-t">10% dto. en gasolina</div><div class="ben-s">Desbloquea alcanzando Oro</div></div>
+              <div class="ben-b"><span class="pill s">Oro</span></div>
+            </div>
+            <div class="ben-it">
+              <div class="ben-ico" style="background:#F0F0F0"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="3" stroke="#888" stroke-width="1.5" fill="none"/><rect x="7" y="8" width="4" height="5" rx="1" fill="#bbb"/><rect x="13" y="8" width="4" height="5" rx="1" fill="#bbb"/></svg></div>
+              <div><div class="ben-t">Parking ilimitado gratis</div><div class="ben-s">1h gratis en todos los partners</div></div>
+              <div class="ben-b"><span class="pill s">Oro</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="bot-nav">
+          <div class="ni" onclick="go('home')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M3 12L12 3l9 9" stroke="#bbb" stroke-width="1.5" stroke-linecap="round"/><path d="M5 10v9h5v-5h4v5h5v-9" stroke="#bbb" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="ni-lbl">Home</span></div>
+          <div class="ni" onclick="go('history')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2M9 5a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2" stroke="#bbb" stroke-width="1.5" stroke-linecap="round"/></svg><span class="ni-lbl">Historial</span></div>
+          <div class="ni" onclick="go('loyalty')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 2l3 7h7l-5.5 4.5 2 7L12 17l-6.5 3.5 2-7L2 9h7z" stroke="#1566C0" stroke-width="1.5" stroke-linejoin="round" fill="none"/></svg><span class="ni-lbl on">Rewards</span></div>
+          <div class="ni"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="#bbb" stroke-width="1.5"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" stroke="#bbb" stroke-width="1.5" stroke-linecap="round"/></svg><span class="ni-lbl">Perfil</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="nav-pills">
+  <button class="np on" onclick="go('ob')">Onboarding</button>
+  <button class="np" onclick="go('login')">Login</button>
+  <button class="np" onclick="go('register')">Registro</button>
+  <button class="np" onclick="go('services')">Servicios</button>
+  <button class="np" onclick="go('home')">Home</button>
+  <button class="np" onclick="go('history')">Historial</button>
+  <button class="np" onclick="go('loyalty')">EasyRewards</button>
+</div>
+
+<script>
+function go(id){
+  document.querySelectorAll('.screen').forEach(function(s){s.classList.remove('active');s.scrollTop=0;});
+  document.querySelectorAll('.np').forEach(function(b){b.classList.remove('on');});
+  var el=document.getElementById('s-'+id);
+  if(el)el.classList.add('active');
+  var map={ob:0,login:1,register:2,services:3,home:4,history:5,loyalty:6};
+  var btns=document.querySelectorAll('.np');
+  if(btns[map[id]])btns[map[id]].classList.add('on');
+}
+</script>
+</body>
+</html>
