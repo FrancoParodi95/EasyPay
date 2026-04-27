@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>EasyPay — App Mockup</title>
+<title>EasyPay — App Mockup v2</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'DM Sans',sans-serif;background:#F0EEE9;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:24px 16px 40px}
+body{font-family:'DM Sans',sans-serif;background:#F0EEE9;min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:24px 16px 40px}
 .title-bar{text-align:center;margin-bottom:20px}
 .title-bar h1{font-size:13px;font-weight:500;color:#888;letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px}
 .title-bar p{font-size:11px;color:#bbb}
@@ -18,14 +18,9 @@ body{font-family:'DM Sans',sans-serif;background:#F0EEE9;min-height:100vh;displa
 .screen{width:300px;height:644px;overflow-y:auto;overflow-x:hidden;display:none;flex-direction:column;background:#F2F2F2;scrollbar-width:none}
 .screen::-webkit-scrollbar{display:none}
 .screen.active{display:flex}
-
-/* NAV PILLS */
 .nav-pills{display:flex;gap:7px;flex-wrap:wrap;justify-content:center;margin-top:16px;max-width:340px}
 .np{font-family:'DM Sans',sans-serif;font-size:10px;font-weight:500;padding:6px 13px;border-radius:20px;border:0.5px solid #ccc;background:#fff;cursor:pointer;color:#555;transition:all .15s}
-.np:hover{background:#0A1628;color:#7BC8A4;border-color:#0A1628}
 .np.on{background:#0A1628;color:#7BC8A4;border-color:#0A1628}
-
-/* SHARED COMPONENTS */
 .sb{background:#0A1628;display:flex;justify-content:space-between;align-items:center;padding:48px 20px 6px;font-size:11px;color:#7B9FD4;font-weight:500;flex-shrink:0}
 .hdr{background:#0A1628;padding:12px 18px 16px;flex-shrink:0}
 .hdr-t{font-size:16px;font-weight:600;color:#fff;margin-bottom:2px}
@@ -33,51 +28,38 @@ body{font-family:'DM Sans',sans-serif;background:#F0EEE9;min-height:100vh;displa
 .body{padding:12px 14px 90px;background:#F2F2F2;flex:1}
 .card{background:#fff;border-radius:14px;border:0.5px solid #e8e8e8;padding:12px 14px;margin-bottom:9px}
 .sec{font-size:10px;font-weight:500;color:#999;letter-spacing:.07em;text-transform:uppercase;margin-bottom:8px;margin-top:4px}
-.pill{display:inline-flex;align-items:center;gap:3px;font-size:10px;font-weight:500;border-radius:20px;padding:3px 9px}
+.pill{display:inline-flex;align-items:center;font-size:10px;font-weight:500;border-radius:20px;padding:3px 9px}
 .pill.g{background:#E1F5EE;color:#085041}
 .pill.b{background:#E6F1FB;color:#0C447C}
 .pill.a{background:#FAEEDA;color:#633806}
 .pill.s{background:#F0F0F0;color:#444}
+.pill.bronze{background:#FAEEE4;color:#7A3A1A}
+.pill.gold{background:#FFF3CC;color:#7A5000}
 .cta{background:#1566C0;border-radius:14px;padding:14px;text-align:center;font-size:13px;font-weight:600;color:#fff;margin-top:10px;cursor:pointer}
-.cta:active{opacity:.85}
 .ghost{background:rgba(10,22,40,0.06);border-radius:14px;padding:12px;text-align:center;font-size:12px;font-weight:500;color:#1566C0;margin-top:7px;cursor:pointer}
-
-/* BOTTOM NAV */
+.back-btn{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:500;color:#7B9FD4;cursor:pointer;padding:4px 0 10px}
 .bot-nav{width:300px;background:#fff;border-top:0.5px solid #e8e8e8;display:flex;padding:10px 0 20px;flex-shrink:0;position:sticky;bottom:0}
 .ni{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;cursor:pointer}
 .ni-lbl{font-size:9px;color:#aaa;font-weight:500}
 .ni-lbl.on{color:#1566C0}
-
-/* ONBOARDING */
 .ob-r{display:flex;align-items:flex-start;gap:12px;padding:12px 0}
 .ob-r+.ob-r{border-top:0.5px solid rgba(255,255,255,.08)}
 .ob-n{width:22px;height:22px;border-radius:50%;background:rgba(123,200,164,.15);border:0.5px solid #7BC8A4;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:10px;font-weight:600;color:#7BC8A4}
 .ob-tt{font-size:12px;font-weight:500;color:#fff}
 .ob-ss{font-size:10px;color:#7B9FD4;margin-top:2px}
-
-/* LOGIN */
 .face-box{width:58px;height:58px;border-radius:16px;background:#0A1628;display:flex;align-items:center;justify-content:center;margin:6px auto 10px}
-.inp{background:#fff;border:0.5px solid #ddd;border-radius:10px;padding:10px 13px;font-size:12px;color:#1a1a1a;margin-bottom:8px;display:flex;justify-content:space-between;align-items:center}
+.inp{background:#fff;border:0.5px solid #ddd;border-radius:10px;padding:10px 13px;font-size:12px;margin-bottom:8px;display:flex;justify-content:space-between;align-items:center}
 .ph{color:#bbb}
 .div-r{display:flex;align-items:center;gap:8px;margin:8px 0}
 .div-l{flex:1;height:0.5px;background:#eee}
 .div-t{font-size:10px;color:#bbb}
-
-/* REGISTER */
 .step-bar{display:flex;gap:4px;margin-bottom:14px}
 .seg{flex:1;height:3px;border-radius:2px}
-.seg.done{background:#1566C0}
-.seg.act{background:#7BC8A4}
-.seg.todo{background:#ddd}
+.seg.done{background:#1566C0}.seg.act{background:#7BC8A4}.seg.todo{background:#ddd}
 .card-vis{background:#0A1628;border-radius:14px;padding:14px 16px;margin-bottom:12px}
 .chip{width:24px;height:17px;background:#F9C46A;border-radius:4px;margin-bottom:12px}
 .card-num{font-size:11px;color:#7B9FD4;letter-spacing:3px;margin-bottom:10px}
-.card-meta{display:flex;justify-content:space-between}
-.card-name{font-size:11px;font-weight:500;color:#fff}
-.card-exp{font-size:10px;color:#7B9FD4}
 .secure-row{display:flex;align-items:center;gap:8px;background:#E1F5EE;border-radius:10px;padding:8px 11px;margin:8px 0 12px}
-
-/* SERVICES */
 .toggle-tr{width:34px;height:20px;border-radius:10px;background:#0A1628;display:flex;align-items:center;padding:3px;flex-shrink:0;margin-left:auto}
 .toggle-th{width:14px;height:14px;border-radius:50%;background:#7BC8A4;margin-left:auto}
 .toggle-tr.off{background:#ddd}
@@ -87,62 +69,37 @@ body{font-family:'DM Sans',sans-serif;background:#F0EEE9;min-height:100vh;displa
 .svc-ico{width:36px;height:36px;border-radius:11px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .svc-tt{font-size:12px;font-weight:500;color:#1a1a1a}
 .svc-ss{font-size:10px;color:#999}
-
-/* HOME */
 .home-hdr{background:#0A1628;padding:12px 18px 16px;flex-shrink:0}
 .hw{background:rgba(255,255,255,.07);border-radius:13px;padding:12px 14px;display:flex;justify-content:space-between;align-items:center}
-.hw-lbl{font-size:10px;color:#7B9FD4;margin-bottom:2px}
-.hw-v{font-size:24px;font-weight:600;color:#fff}
-.hw-saves{font-size:10px;color:#7BC8A4;font-weight:500}
-.hw-sv{font-size:14px;font-weight:600;color:#7BC8A4}
 .stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px}
 .stat-c{background:#fff;border-radius:12px;border:0.5px solid #e8e8e8;padding:10px 12px}
 .stat-ico{width:24px;height:24px;border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:6px}
-.stat-lbl{font-size:10px;color:#999;margin-bottom:2px}
-.stat-v{font-size:15px;font-weight:600;color:#1a1a1a}
-.stat-sub{font-size:9px;color:#bbb}
 .svc-row{display:flex;gap:7px;margin-bottom:10px}
-.svc-mini{flex:1;background:#fff;border-radius:11px;border:0.5px solid #e8e8e8;padding:9px 6px;text-align:center}
+.svc-mini{flex:1;background:#fff;border-radius:11px;border:0.5px solid #e8e8e8;padding:9px 6px;text-align:center;cursor:pointer}
 .svc-mini-ico{width:28px;height:28px;border-radius:9px;display:flex;align-items:center;justify-content:center;margin:0 auto 5px}
 .svc-mini-lbl{font-size:10px;font-weight:500;color:#1a1a1a}
 .tx-r{display:flex;justify-content:space-between;align-items:center;padding:9px 0}
 .tx-r+.tx-r{border-top:0.5px solid #f5f5f5}
 .tx-l{display:flex;align-items:center;gap:8px}
 .tx-ico{width:28px;height:28px;border-radius:9px;display:flex;align-items:center;justify-content:center}
-.tx-n{font-size:12px;font-weight:500;color:#1a1a1a}
-.tx-t{font-size:10px;color:#bbb}
-.tx-a{font-size:12px;font-weight:600;color:#1a1a1a}
-
-/* HISTORY */
 .filter-row{display:flex;gap:6px;margin-bottom:10px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
 .filter-row::-webkit-scrollbar{display:none}
 .fp{font-size:10px;font-weight:500;padding:5px 12px;border-radius:20px;border:0.5px solid #ddd;color:#888;background:#fff;white-space:nowrap;cursor:pointer}
 .fp.on{background:#0A1628;color:#7BC8A4;border-color:#0A1628}
-.total-bar{background:#fff;border:0.5px solid #e8e8e8;border-radius:12px;padding:11px 13px;display:flex;justify-content:space-between;margin-bottom:10px}
-.total-lbl{font-size:10px;color:#999}
-.total-v{font-size:14px;font-weight:600;color:#1a1a1a}
-.total-vs{font-size:14px;font-weight:600;color:#085041}
+.total-bar{background:#fff;border:0.5px solid #e8e8e8;border-radius:12px;padding:11px 13px;display:flex;justify-content:space-between;margin-bottom:10px;cursor:pointer}
 .month-h{font-size:10px;font-weight:500;color:#aaa;text-transform:uppercase;letter-spacing:.06em;padding:8px 0 4px}
 .tx-f{display:flex;justify-content:space-between;align-items:center;padding:10px 0}
 .tx-f+.tx-f{border-top:0.5px solid #f5f5f5}
 .tx-fl{display:flex;align-items:center;gap:9px}
-.tx-fn{font-size:12px;font-weight:500;color:#1a1a1a}
-.tx-fm{font-size:10px;color:#bbb}
-.tx-fa{font-size:13px;font-weight:600;color:#1a1a1a}
-.tx-fs{font-size:10px;color:#085041;font-weight:500}
-
-/* LOYALTY */
 .loy-hdr{background:#0A1628;padding:12px 18px 16px;flex-shrink:0}
 .loy-card{background:rgba(255,255,255,.08);border-radius:14px;padding:14px}
 .loy-top{display:flex;align-items:center;gap:11px;margin-bottom:11px}
 .loy-medal{width:44px;height:44px;border-radius:13px;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center}
-.loy-name{font-size:16px;font-weight:600;color:#fff}
-.loy-sub{font-size:10px;color:#7B9FD4;margin-top:1px}
 .prog-track{background:rgba(255,255,255,.12);border-radius:4px;height:6px;margin-bottom:5px}
 .prog-fill{height:6px;border-radius:4px;background:#7BC8A4}
 .prog-lbl{display:flex;justify-content:space-between;font-size:10px;color:#7B9FD4}
 .tier-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:7px;margin-bottom:10px}
-.tier-c{border-radius:11px;padding:10px 8px;border:0.5px solid #e8e8e8;background:#fff;text-align:center}
+.tier-c{border-radius:11px;padding:10px 8px;border:0.5px solid #e8e8e8;background:#fff;text-align:center;cursor:pointer}
 .tier-c.cur{border:1.5px solid #7BC8A4;background:#F0FCF6}
 .tier-name{font-size:11px;font-weight:600;margin-bottom:2px}
 .tier-req{font-size:9px;color:#bbb}
@@ -152,21 +109,37 @@ body{font-family:'DM Sans',sans-serif;background:#F0EEE9;min-height:100vh;displa
 .ben-t{font-size:12px;font-weight:500;color:#1a1a1a}
 .ben-s{font-size:10px;color:#999;margin-top:1px}
 .ben-b{margin-left:auto;flex-shrink:0;padding-top:1px}
+.prof-hdr{background:#0A1628;padding:48px 18px 24px;text-align:center;flex-shrink:0}
+.prof-avatar{width:60px;height:60px;border-radius:50%;background:#1A3A5C;display:flex;align-items:center;justify-content:center;margin:0 auto 10px;font-size:20px;font-weight:600;color:#7BC8A4}
+.prof-row{display:flex;align-items:center;gap:11px;padding:12px 0;cursor:pointer}
+.prof-row+.prof-row{border-top:0.5px solid #f5f5f5}
+.prof-ico{width:32px;height:32px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.brand-card{background:#fff;border-radius:12px;border:0.5px solid #e8e8e8;padding:11px 13px;margin-bottom:8px;display:flex;align-items:center;gap:11px}
+.brand-logo{width:40px;height:40px;border-radius:11px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:11px;font-weight:700}
+.nearest-banner{background:#0A1628;border-radius:12px;padding:11px 13px;margin-bottom:10px;display:flex;align-items:center;gap:10px}
+.nearest-dot{width:8px;height:8px;border-radius:50%;background:#7BC8A4;flex-shrink:0}
+.sav-total{background:#0A1628;border-radius:14px;padding:16px;margin-bottom:12px;text-align:center}
+.bar-wrap{background:#fff;border-radius:12px;border:0.5px solid #e8e8e8;padding:12px 14px;margin-bottom:9px}
+.bar-row{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+.bar-row:last-child{margin-bottom:0}
+.bar-bg{flex:1;background:#f5f5f5;border-radius:4px;height:8px;overflow:hidden}
+.bar-fill{height:8px;border-radius:4px;background:#7BC8A4}
+.bdown{background:#fff;border-radius:12px;border:0.5px solid #e8e8e8;padding:11px 13px}
+.bdr{display:flex;justify-content:space-between;align-items:center;padding:7px 0}
+.bdr+.bdr{border-top:0.5px solid #f5f5f5}
 </style>
 </head>
 <body>
-
 <div class="title-bar">
-  <h1>EasyPay — App Mockup</h1>
-  <p>Toca los botones para navegar entre pantallas</p>
+  <h1>EasyPay — App Mockup v2</h1>
+  <p>Navega tocando dentro del dispositivo o con los botones</p>
 </div>
-
 <div class="device-outer">
   <div class="device-inner">
     <div class="island"></div>
     <div class="screen-area">
 
-      <!-- SCREEN 1: ONBOARDING -->
+      <!-- ONBOARDING -->
       <div class="screen active" id="s-ob" style="background:#0A1628">
         <div style="background:#0A1628;padding:52px 20px 20px;flex-shrink:0">
           <div style="text-align:center;margin-bottom:20px">
@@ -175,22 +148,10 @@ body{font-family:'DM Sans',sans-serif;background:#F0EEE9;min-height:100vh;displa
             <div style="font-size:11px;color:#7B9FD4;margin-top:6px">La app que conduce contigo</div>
           </div>
           <div style="padding:0 4px">
-            <div class="ob-r">
-              <div class="ob-n">1</div>
-              <div><div class="ob-tt">Registra tu tarjeta</div><div class="ob-ss">Vincula tu método de pago en segundos</div></div>
-            </div>
-            <div class="ob-r">
-              <div class="ob-n">2</div>
-              <div><div class="ob-tt">Activa tus servicios</div><div class="ob-ss">Peajes, gasolina, parking, drive-thru</div></div>
-            </div>
-            <div class="ob-r">
-              <div class="ob-n">3</div>
-              <div><div class="ob-tt">La cámara detecta tu placa</div><div class="ob-ss">Tecnología LPR — sin hacer nada</div></div>
-            </div>
-            <div class="ob-r">
-              <div class="ob-n">4</div>
-              <div><div class="ob-tt">Confirma con un tap</div><div class="ob-ss">Push notification → pago automático</div></div>
-            </div>
+            <div class="ob-r"><div class="ob-n">1</div><div><div class="ob-tt">Registra tu tarjeta</div><div class="ob-ss">Vincula tu método de pago en segundos</div></div></div>
+            <div class="ob-r"><div class="ob-n">2</div><div><div class="ob-tt">Activa tus servicios</div><div class="ob-ss">Peajes, gasolina, parking, drive-thru</div></div></div>
+            <div class="ob-r"><div class="ob-n">3</div><div><div class="ob-tt">La cámara detecta tu placa</div><div class="ob-ss">Tecnología LPR — sin hacer nada</div></div></div>
+            <div class="ob-r"><div class="ob-n">4</div><div><div class="ob-tt">Confirma con un tap</div><div class="ob-ss">Push notification → pago automático</div></div></div>
           </div>
         </div>
         <div style="padding:0 16px 36px;background:#0A1628;flex-shrink:0">
@@ -199,7 +160,7 @@ body{font-family:'DM Sans',sans-serif;background:#F0EEE9;min-height:100vh;displa
         </div>
       </div>
 
-      <!-- SCREEN 2: LOGIN -->
+      <!-- LOGIN -->
       <div class="screen" id="s-login">
         <div style="background:#0A1628;padding:52px 20px 24px;text-align:center;flex-shrink:0">
           <div style="font-size:26px;font-weight:700;color:#fff;letter-spacing:-0.5px;margin-bottom:3px">EasyPay</div>
@@ -208,12 +169,9 @@ body{font-family:'DM Sans',sans-serif;background:#F0EEE9;min-height:100vh;displa
         <div class="body" style="padding-bottom:20px">
           <div class="face-box">
             <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
-              <rect x="3" y="3" width="4" height="2" rx="1" fill="#7BC8A4"/>
-              <rect x="17" y="3" width="4" height="2" rx="1" fill="#7BC8A4"/>
-              <rect x="3" y="19" width="4" height="2" rx="1" fill="#7BC8A4"/>
-              <rect x="17" y="19" width="4" height="2" rx="1" fill="#7BC8A4"/>
-              <circle cx="9" cy="10" r="1.5" fill="#7BC8A4"/>
-              <circle cx="15" cy="10" r="1.5" fill="#7BC8A4"/>
+              <rect x="3" y="3" width="4" height="2" rx="1" fill="#7BC8A4"/><rect x="17" y="3" width="4" height="2" rx="1" fill="#7BC8A4"/>
+              <rect x="3" y="19" width="4" height="2" rx="1" fill="#7BC8A4"/><rect x="17" y="19" width="4" height="2" rx="1" fill="#7BC8A4"/>
+              <circle cx="9" cy="10" r="1.5" fill="#7BC8A4"/><circle cx="15" cy="10" r="1.5" fill="#7BC8A4"/>
               <path d="M9 15 Q12 17.5 15 15" stroke="#7BC8A4" stroke-width="1.2" fill="none" stroke-linecap="round"/>
               <line x1="12" y1="12" x2="12" y2="14" stroke="#7BC8A4" stroke-width="1" stroke-linecap="round"/>
             </svg>
@@ -229,291 +187,369 @@ body{font-family:'DM Sans',sans-serif;background:#F0EEE9;min-height:100vh;displa
         </div>
       </div>
 
-      <!-- SCREEN 3: REGISTER -->
+      <!-- REGISTER -->
       <div class="screen" id="s-register">
         <div class="sb" style="padding-top:52px"></div>
-        <div class="hdr">
-          <div style="font-size:10px;color:#7B9FD4;margin-bottom:4px;font-weight:500">PASO 2 DE 3</div>
-          <div class="hdr-t">Vincula tu tarjeta</div>
-          <div class="hdr-s">Así pagamos automáticamente por ti</div>
-        </div>
+        <div class="hdr"><div style="font-size:10px;color:#7B9FD4;margin-bottom:4px;font-weight:500">PASO 2 DE 3</div><div class="hdr-t">Vincula tu tarjeta</div><div class="hdr-s">Así pagamos automáticamente por ti</div></div>
         <div class="body">
-          <div class="step-bar">
-            <div class="seg done"></div>
-            <div class="seg act"></div>
-            <div class="seg todo"></div>
-          </div>
+          <div class="step-bar"><div class="seg done"></div><div class="seg act"></div><div class="seg todo"></div></div>
           <div class="card-vis">
             <div class="chip"></div>
             <div class="card-num">•••• •••• •••• 4521</div>
-            <div class="card-meta">
-              <div class="card-name">Franco Parodi</div>
-              <div class="card-exp">12/27</div>
-            </div>
+            <div style="display:flex;justify-content:space-between"><span style="font-size:11px;font-weight:500;color:#fff">Franco Parodi</span><span style="font-size:10px;color:#7B9FD4">12/27</span></div>
           </div>
           <div class="sec">Datos de la tarjeta</div>
           <div class="inp"><span class="ph">Número de tarjeta</span></div>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px">
-            <div class="inp" style="margin:0">Vencimiento</div>
-            <div class="inp" style="margin:0">CVV</div>
-          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px"><div class="inp" style="margin:0">Vencimiento</div><div class="inp" style="margin:0">CVV</div></div>
           <div class="inp">Titular de la tarjeta</div>
-          <div class="secure-row">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><rect x="3" y="11" width="18" height="11" rx="2" stroke="#085041" stroke-width="1.5"/><path d="M7 11V7a5 5 0 0 1 10 0v4" stroke="#085041" stroke-width="1.5" stroke-linecap="round"/></svg>
-            <span style="font-size:10px;color:#085041">Encriptación de 256 bits. Tus datos están seguros.</span>
-          </div>
+          <div class="secure-row"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><rect x="3" y="11" width="18" height="11" rx="2" stroke="#085041" stroke-width="1.5"/><path d="M7 11V7a5 5 0 0 1 10 0v4" stroke="#085041" stroke-width="1.5" stroke-linecap="round"/></svg><span style="font-size:10px;color:#085041">Encriptación de 256 bits. Tus datos están seguros.</span></div>
           <div class="cta" onclick="go('services')">Confirmar y continuar →</div>
           <div style="text-align:center;margin-top:9px;font-size:10px;color:#999">También puedes <span style="color:#185FA5;font-weight:500">añadir saldo prepago</span></div>
         </div>
       </div>
 
-      <!-- SCREEN 4: SERVICES -->
+      <!-- SERVICES SETUP -->
       <div class="screen" id="s-services">
         <div class="sb" style="padding-top:52px"></div>
-        <div class="hdr">
-          <div class="hdr-t">¿Dónde usas EasyPay?</div>
-          <div class="hdr-s">Activa solo donde quieras pago automático</div>
-        </div>
+        <div class="hdr"><div class="hdr-t">¿Dónde usas EasyPay?</div><div class="hdr-s">Activa solo donde quieras pago automático</div></div>
         <div class="body">
           <div class="sec">Movilidad</div>
           <div class="card">
-            <div class="svc-it">
-              <div class="svc-ico" style="background:#1A3A5C"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="2" y="8" width="20" height="9" rx="2" fill="#7BC8A4"/><circle cx="8" cy="17" r="2" fill="#7BC8A4"/><circle cx="16" cy="17" r="2" fill="#7BC8A4"/></svg></div>
-              <div><div class="svc-tt">Peajes</div><div class="svc-ss">Detección automática vía LPR</div></div>
-              <div class="toggle-tr"><div class="toggle-th"></div></div>
-            </div>
-            <div class="svc-it">
-              <div class="svc-ico" style="background:#1A2E4A"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 2C8 2 5 8 5 13a7 7 0 0 0 14 0c0-5-3-11-7-11z" fill="#F9C46A"/><circle cx="12" cy="13" r="2" fill="#0A1628"/></svg></div>
-              <div><div class="svc-tt">Gasolineras</div><div class="svc-ss">GPS + reconocimiento de placa</div></div>
-              <div class="toggle-tr"><div class="toggle-th"></div></div>
-            </div>
-            <div class="svc-it">
-              <div class="svc-ico" style="background:#1A3325"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="3" stroke="#7BC8A4" stroke-width="1.5" fill="none"/><rect x="7" y="8" width="4" height="5" rx="1" fill="#7BC8A4"/><rect x="13" y="8" width="4" height="5" rx="1" fill="#7BC8A4"/></svg></div>
-              <div><div class="svc-tt">Estacionamientos</div><div class="svc-ss">Entrada y salida detectadas</div></div>
-              <div class="toggle-tr"><div class="toggle-th"></div></div>
-            </div>
+            <div class="svc-it" onclick="toggleSvc(this)"><div class="svc-ico" style="background:#1A3A5C"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="2" y="8" width="20" height="9" rx="2" fill="#7BC8A4"/><circle cx="8" cy="17" r="2" fill="#7BC8A4"/><circle cx="16" cy="17" r="2" fill="#7BC8A4"/></svg></div><div><div class="svc-tt">Peajes</div><div class="svc-ss">Detección automática vía LPR</div></div><div class="toggle-tr" data-on="true"><div class="toggle-th"></div></div></div>
+            <div class="svc-it" onclick="toggleSvc(this)"><div class="svc-ico" style="background:#1A2E4A"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 2C8 2 5 8 5 13a7 7 0 0 0 14 0c0-5-3-11-7-11z" fill="#F9C46A"/><circle cx="12" cy="13" r="2" fill="#0A1628"/></svg></div><div><div class="svc-tt">Gasolineras</div><div class="svc-ss">GPS + reconocimiento de placa</div></div><div class="toggle-tr" data-on="true"><div class="toggle-th"></div></div></div>
+            <div class="svc-it" onclick="toggleSvc(this)"><div class="svc-ico" style="background:#1A3325"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="3" stroke="#7BC8A4" stroke-width="1.5" fill="none"/><rect x="7" y="8" width="4" height="5" rx="1" fill="#7BC8A4"/><rect x="13" y="8" width="4" height="5" rx="1" fill="#7BC8A4"/></svg></div><div><div class="svc-tt">Estacionamientos</div><div class="svc-ss">Entrada y salida detectadas</div></div><div class="toggle-tr" data-on="true"><div class="toggle-th"></div></div></div>
           </div>
           <div class="sec">Consumo</div>
           <div class="card">
-            <div class="svc-it">
-              <div class="svc-ico" style="background:#2A1A10"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="#EF9F27" stroke-width="1.5" fill="none"/><path d="M8 5V3M16 5V3" stroke="#EF9F27" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-              <div><div class="svc-tt">Drive-thru</div><div class="svc-ss">McDonald's, Burger King y más</div></div>
-              <div class="toggle-tr"><div class="toggle-th"></div></div>
-            </div>
-            <div class="svc-it">
-              <div class="svc-ico" style="background:#1A1A2E"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="2" stroke="#AFA9EC" stroke-width="1.5" fill="none"/><path d="M3 9h18M9 3v18" stroke="#AFA9EC" stroke-width="1" opacity=".5"/></svg></div>
-              <div><div class="svc-tt">Zonas reguladas</div><div class="svc-ss">Tasas urbanas automáticas</div></div>
-              <div class="toggle-tr off"><div class="toggle-th off"></div></div>
-            </div>
+            <div class="svc-it" onclick="toggleSvc(this)"><div class="svc-ico" style="background:#2A1A10"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="#EF9F27" stroke-width="1.5" fill="none"/></svg></div><div><div class="svc-tt">Drive-thru</div><div class="svc-ss">McDonald's, Burger King y más</div></div><div class="toggle-tr" data-on="true"><div class="toggle-th"></div></div></div>
+            <div class="svc-it" onclick="toggleSvc(this)"><div class="svc-ico" style="background:#1A1A2E"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="2" stroke="#AFA9EC" stroke-width="1.5" fill="none"/></svg></div><div><div class="svc-tt">Zonas reguladas</div><div class="svc-ss">Tasas urbanas automáticas</div></div><div class="toggle-tr off" data-on="false"><div class="toggle-th off"></div></div></div>
           </div>
-          <div class="cta" onclick="go('home')">Guardar y activar →</div>
+          <div id="svc-save-btn" class="cta" onclick="saveSvc()">Guardar y activar →</div>
+          <div id="svc-saved-msg" style="display:none;text-align:center;padding:12px;font-size:12px;font-weight:500;color:#085041;background:#E1F5EE;border-radius:12px;margin-top:10px">✓ Configuración guardada</div>
         </div>
       </div>
 
-      <!-- SCREEN 5: HOME -->
+      <!-- HOME -->
       <div class="screen" id="s-home">
         <div class="home-hdr">
           <div style="padding-top:48px"></div>
           <div style="font-size:11px;color:#7B9FD4;margin-bottom:2px">Buenos días</div>
           <div style="font-size:19px;font-weight:600;color:#fff;margin-bottom:13px">Franco</div>
           <div class="hw">
-            <div><div class="hw-lbl">Saldo disponible</div><div class="hw-v">€45.00</div></div>
-            <div style="text-align:right"><div class="hw-saves">Ahorro este mes</div><div class="hw-sv">€12.40</div></div>
+            <div><div style="font-size:10px;color:#7B9FD4;margin-bottom:2px">Saldo disponible</div><div style="font-size:24px;font-weight:600;color:#fff">€45.00</div></div>
+            <div style="text-align:right"><div style="font-size:10px;color:#7BC8A4;font-weight:500">Ahorro este mes</div><div style="font-size:14px;font-weight:600;color:#7BC8A4">€12.40</div></div>
           </div>
         </div>
         <div class="body">
           <div class="sec">Tu impacto este mes</div>
           <div class="stat-grid">
-            <div class="stat-c">
-              <div class="stat-ico" style="background:#E1F5EE"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#085041" stroke-width="1.5"/><path d="M12 7v5l3 3" stroke="#085041" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-              <div class="stat-lbl">Tiempo ahorrado</div>
-              <div class="stat-v">47 min</div>
-              <div class="stat-sub">este mes</div>
-            </div>
-            <div class="stat-c">
-              <div class="stat-ico" style="background:#E6F1FB"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 2l3 7h7l-5.5 4.5 2 7L12 17l-6.5 3.5 2-7L2 9h7z" stroke="#185FA5" stroke-width="1.5" stroke-linejoin="round" fill="none"/></svg></div>
-              <div class="stat-lbl">Nivel actual</div>
-              <div class="stat-v">Plata</div>
-              <div class="stat-sub">23 usos</div>
-            </div>
-            <div class="stat-c">
-              <div class="stat-ico" style="background:#FAEEDA"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="#633806" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9" stroke="#633806" stroke-width="1.5"/></svg></div>
-              <div class="stat-lbl">Pagos auto</div>
-              <div class="stat-v">38</div>
-              <div class="stat-sub">sin tocar nada</div>
-            </div>
-            <div class="stat-c">
-              <div class="stat-ico" style="background:#EAF3DE"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M18 6L6 18M6 6l12 12" stroke="#3B6D11" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-              <div class="stat-lbl">Filas evitadas</div>
-              <div class="stat-v">38</div>
-              <div class="stat-sub">este mes</div>
-            </div>
+            <div class="stat-c"><div class="stat-ico" style="background:#E1F5EE"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#085041" stroke-width="1.5"/><path d="M12 7v5l3 3" stroke="#085041" stroke-width="1.5" stroke-linecap="round"/></svg></div><div style="font-size:10px;color:#999;margin-bottom:2px">Tiempo ahorrado</div><div style="font-size:15px;font-weight:600;color:#1a1a1a">47 min</div><div style="font-size:9px;color:#bbb">este mes</div></div>
+            <div class="stat-c"><div class="stat-ico" style="background:#E6F1FB"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 2l3 7h7l-5.5 4.5 2 7L12 17l-6.5 3.5 2-7L2 9h7z" stroke="#185FA5" stroke-width="1.5" stroke-linejoin="round" fill="none"/></svg></div><div style="font-size:10px;color:#999;margin-bottom:2px">Nivel actual</div><div style="font-size:15px;font-weight:600;color:#1a1a1a">Plata</div><div style="font-size:9px;color:#bbb">23 usos</div></div>
+            <div class="stat-c"><div class="stat-ico" style="background:#FAEEDA"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="#633806" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9" stroke="#633806" stroke-width="1.5"/></svg></div><div style="font-size:10px;color:#999;margin-bottom:2px">Pagos auto</div><div style="font-size:15px;font-weight:600;color:#1a1a1a">38</div><div style="font-size:9px;color:#bbb">sin tocar nada</div></div>
+            <div class="stat-c"><div class="stat-ico" style="background:#EAF3DE"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M18 6L6 18M6 6l12 12" stroke="#3B6D11" stroke-width="1.5" stroke-linecap="round"/></svg></div><div style="font-size:10px;color:#999;margin-bottom:2px">Filas evitadas</div><div style="font-size:15px;font-weight:600;color:#1a1a1a">38</div><div style="font-size:9px;color:#bbb">este mes</div></div>
           </div>
-          <div class="sec">Servicios activos</div>
+          <div class="sec">Servicios activos <span style="color:#185FA5;font-weight:400;text-transform:none;letter-spacing:0;font-size:10px">· toca para ver partners</span></div>
           <div class="svc-row">
-            <div class="svc-mini">
-              <div class="svc-mini-ico" style="background:#1A3A5C"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><rect x="2" y="8" width="20" height="9" rx="2" fill="#7BC8A4"/><circle cx="8" cy="17" r="2" fill="#7BC8A4"/><circle cx="16" cy="17" r="2" fill="#7BC8A4"/></svg></div>
-              <div class="svc-mini-lbl">Peajes</div>
-            </div>
-            <div class="svc-mini">
-              <div class="svc-mini-ico" style="background:#1A2E4A"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 2C8 2 5 8 5 13a7 7 0 0 0 14 0c0-5-3-11-7-11z" fill="#F9C46A"/><circle cx="12" cy="13" r="2" fill="#0A1628"/></svg></div>
-              <div class="svc-mini-lbl">Gasolina</div>
-            </div>
-            <div class="svc-mini">
-              <div class="svc-mini-ico" style="background:#1A3325"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="3" stroke="#7BC8A4" stroke-width="1.5" fill="none"/><rect x="7" y="8" width="4" height="5" rx="1" fill="#7BC8A4"/><rect x="13" y="8" width="4" height="5" rx="1" fill="#7BC8A4"/></svg></div>
-              <div class="svc-mini-lbl">Parking</div>
-            </div>
-            <div class="svc-mini">
-              <div class="svc-mini-ico" style="background:#2A1A10"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="#EF9F27" stroke-width="1.5" fill="none"/></svg></div>
-              <div class="svc-mini-lbl">Drive-thru</div>
-            </div>
+            <div class="svc-mini" onclick="go('partners-toll')"><div class="svc-mini-ico" style="background:#1A3A5C"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><rect x="2" y="8" width="20" height="9" rx="2" fill="#7BC8A4"/><circle cx="8" cy="17" r="2" fill="#7BC8A4"/><circle cx="16" cy="17" r="2" fill="#7BC8A4"/></svg></div><div class="svc-mini-lbl">Peajes</div></div>
+            <div class="svc-mini" onclick="go('partners-fuel')"><div class="svc-mini-ico" style="background:#1A2E4A"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 2C8 2 5 8 5 13a7 7 0 0 0 14 0c0-5-3-11-7-11z" fill="#F9C46A"/><circle cx="12" cy="13" r="2" fill="#0A1628"/></svg></div><div class="svc-mini-lbl">Gasolina</div></div>
+            <div class="svc-mini" onclick="go('partners-parking')"><div class="svc-mini-ico" style="background:#1A3325"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="3" stroke="#7BC8A4" stroke-width="1.5" fill="none"/><rect x="7" y="8" width="4" height="5" rx="1" fill="#7BC8A4"/><rect x="13" y="8" width="4" height="5" rx="1" fill="#7BC8A4"/></svg></div><div class="svc-mini-lbl">Parking</div></div>
+            <div class="svc-mini" onclick="go('partners-drive')"><div class="svc-mini-ico" style="background:#2A1A10"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="#EF9F27" stroke-width="1.5" fill="none"/></svg></div><div class="svc-mini-lbl">Drive-thru</div></div>
           </div>
           <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
             <div class="sec" style="margin:0">Últimos movimientos</div>
             <span style="font-size:10px;color:#185FA5;font-weight:500;cursor:pointer" onclick="go('history')">Ver todos →</span>
           </div>
           <div class="card" style="padding:8px 12px">
-            <div class="tx-r">
-              <div class="tx-l"><div class="tx-ico" style="background:#1A3A5C"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><rect x="2" y="8" width="20" height="9" rx="2" fill="#7BC8A4"/><circle cx="8" cy="17" r="2" fill="#7BC8A4"/><circle cx="16" cy="17" r="2" fill="#7BC8A4"/></svg></div><div><div class="tx-n">Peaje A1 Norte</div><div class="tx-t">Hoy, 08:14</div></div></div>
-              <div class="tx-a">−€2.50</div>
-            </div>
-            <div class="tx-r">
-              <div class="tx-l"><div class="tx-ico" style="background:#1A2E4A"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M12 2C8 2 5 8 5 13a7 7 0 0 0 14 0c0-5-3-11-7-11z" fill="#F9C46A"/><circle cx="12" cy="13" r="2" fill="#0A1628"/></svg></div><div><div class="tx-n">Repsol Lisboa Norte</div><div class="tx-t">Hoy, 07:52</div></div></div>
-              <div class="tx-a">−€45.00</div>
-            </div>
-            <div class="tx-r" style="border-top:0.5px solid #f5f5f5">
-              <div class="tx-l"><div class="tx-ico" style="background:#1A3325"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="3" stroke="#7BC8A4" stroke-width="1.5" fill="none"/><rect x="7" y="8" width="4" height="5" rx="1" fill="#7BC8A4"/><rect x="13" y="8" width="4" height="5" rx="1" fill="#7BC8A4"/></svg></div><div><div class="tx-n">Parking Marquês</div><div class="tx-t">Ayer, 19:30</div></div></div>
-              <div class="tx-a">−€3.00</div>
-            </div>
+            <div class="tx-r"><div class="tx-l"><div class="tx-ico" style="background:#1A3A5C"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><rect x="2" y="8" width="20" height="9" rx="2" fill="#7BC8A4"/><circle cx="8" cy="17" r="2" fill="#7BC8A4"/><circle cx="16" cy="17" r="2" fill="#7BC8A4"/></svg></div><div><div style="font-size:12px;font-weight:500;color:#1a1a1a">Peaje A1 Norte</div><div style="font-size:10px;color:#bbb">Hoy, 08:14</div></div></div><div style="font-size:12px;font-weight:600;color:#1a1a1a">−€2.50</div></div>
+            <div class="tx-r"><div class="tx-l"><div class="tx-ico" style="background:#1A2E4A"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M12 2C8 2 5 8 5 13a7 7 0 0 0 14 0c0-5-3-11-7-11z" fill="#F9C46A"/><circle cx="12" cy="13" r="2" fill="#0A1628"/></svg></div><div><div style="font-size:12px;font-weight:500;color:#1a1a1a">Repsol Lisboa</div><div style="font-size:10px;color:#bbb">Hoy, 07:52</div></div></div><div style="font-size:12px;font-weight:600;color:#1a1a1a">−€45.00</div></div>
+            <div class="tx-r" style="border-top:0.5px solid #f5f5f5"><div class="tx-l"><div class="tx-ico" style="background:#1A3325"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="3" stroke="#7BC8A4" stroke-width="1.5" fill="none"/><rect x="7" y="8" width="4" height="5" rx="1" fill="#7BC8A4"/><rect x="13" y="8" width="4" height="5" rx="1" fill="#7BC8A4"/></svg></div><div><div style="font-size:12px;font-weight:500;color:#1a1a1a">Parking Marquês</div><div style="font-size:10px;color:#bbb">Ayer, 19:30</div></div></div><div style="font-size:12px;font-weight:600;color:#1a1a1a">−€3.00</div></div>
           </div>
         </div>
         <div class="bot-nav">
           <div class="ni" onclick="go('home')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M3 12L12 3l9 9" stroke="#1566C0" stroke-width="1.5" stroke-linecap="round"/><path d="M5 10v9h5v-5h4v5h5v-9" stroke="#1566C0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="ni-lbl on">Home</span></div>
           <div class="ni" onclick="go('history')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2M9 5a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2" stroke="#bbb" stroke-width="1.5" stroke-linecap="round"/></svg><span class="ni-lbl">Historial</span></div>
           <div class="ni" onclick="go('loyalty')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 2l3 7h7l-5.5 4.5 2 7L12 17l-6.5 3.5 2-7L2 9h7z" stroke="#bbb" stroke-width="1.5" stroke-linejoin="round" fill="none"/></svg><span class="ni-lbl">Rewards</span></div>
-          <div class="ni"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="#bbb" stroke-width="1.5"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" stroke="#bbb" stroke-width="1.5" stroke-linecap="round"/></svg><span class="ni-lbl">Perfil</span></div>
+          <div class="ni" onclick="go('profile')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="#bbb" stroke-width="1.5"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" stroke="#bbb" stroke-width="1.5" stroke-linecap="round"/></svg><span class="ni-lbl">Perfil</span></div>
         </div>
       </div>
 
-      <!-- SCREEN 6: HISTORY -->
+      <!-- HISTORY -->
       <div class="screen" id="s-history">
         <div class="sb" style="padding-top:52px"></div>
         <div class="hdr"><div class="hdr-t">Movimientos</div><div class="hdr-s">Todos tus pagos en un lugar</div></div>
         <div class="body">
-          <div class="filter-row">
-            <div class="fp on">Todos</div>
-            <div class="fp">Peajes</div>
-            <div class="fp">Gasolina</div>
-            <div class="fp">Parking</div>
-            <div class="fp">Drive-thru</div>
+          <div class="filter-row" id="hist-filters">
+            <div class="fp on" onclick="filterHist(this,'all')">Todos</div>
+            <div class="fp" onclick="filterHist(this,'toll')">Peajes</div>
+            <div class="fp" onclick="filterHist(this,'fuel')">Gasolina</div>
+            <div class="fp" onclick="filterHist(this,'parking')">Parking</div>
+            <div class="fp" onclick="filterHist(this,'drive')">Drive-thru</div>
           </div>
-          <div class="total-bar">
-            <div><div class="total-lbl">Total este mes</div><div class="total-v">€127.80</div></div>
-            <div style="text-align:right"><div class="total-lbl">Ahorro acumulado</div><div class="total-vs">€12.40</div></div>
+          <div class="total-bar" onclick="go('savings-history')">
+            <div><div style="font-size:10px;color:#999">Total este mes</div><div style="font-size:14px;font-weight:600;color:#1a1a1a">€127.80</div></div>
+            <div style="text-align:right"><div style="font-size:10px;color:#085041">Ahorro acumulado ↗</div><div style="font-size:14px;font-weight:600;color:#085041">€12.40</div></div>
           </div>
-          <div class="month-h">Hoy</div>
-          <div class="tx-f">
-            <div class="tx-fl"><div class="tx-ico" style="background:#1A3A5C"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><rect x="2" y="8" width="20" height="9" rx="2" fill="#7BC8A4"/><circle cx="8" cy="17" r="2" fill="#7BC8A4"/><circle cx="16" cy="17" r="2" fill="#7BC8A4"/></svg></div><div><div class="tx-fn">Peaje A1 Norte</div><div class="tx-fm">08:14 · Automático</div></div></div>
-            <div style="text-align:right"><div class="tx-fa">−€2.50</div><div class="tx-fs">−€0.25 ahorrado</div></div>
+          <div id="hist-all">
+            <div class="month-h">Hoy</div>
+            <div class="tx-f"><div class="tx-fl"><div class="tx-ico" style="background:#1A3A5C"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><rect x="2" y="8" width="20" height="9" rx="2" fill="#7BC8A4"/><circle cx="8" cy="17" r="2" fill="#7BC8A4"/><circle cx="16" cy="17" r="2" fill="#7BC8A4"/></svg></div><div><div style="font-size:12px;font-weight:500;color:#1a1a1a">Peaje A1 Norte</div><div style="font-size:10px;color:#bbb">08:14 · Automático</div></div></div><div style="text-align:right"><div style="font-size:13px;font-weight:600;color:#1a1a1a">−€2.50</div><div style="font-size:10px;color:#085041;font-weight:500">−€0.25 ahorrado</div></div></div>
+            <div class="tx-f"><div class="tx-fl"><div class="tx-ico" style="background:#1A2E4A"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M12 2C8 2 5 8 5 13a7 7 0 0 0 14 0c0-5-3-11-7-11z" fill="#F9C46A"/><circle cx="12" cy="13" r="2" fill="#0A1628"/></svg></div><div><div style="font-size:12px;font-weight:500;color:#1a1a1a">Repsol Lisboa Norte</div><div style="font-size:10px;color:#bbb">07:52 · 38.2L</div></div></div><div style="text-align:right"><div style="font-size:13px;font-weight:600;color:#1a1a1a">−€45.00</div><div style="font-size:10px;color:#085041;font-weight:500">−€2.30 ahorrado</div></div></div>
+            <div class="month-h">Ayer</div>
+            <div class="tx-f"><div class="tx-fl"><div class="tx-ico" style="background:#1A3325"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="3" stroke="#7BC8A4" stroke-width="1.5" fill="none"/><rect x="7" y="8" width="4" height="5" rx="1" fill="#7BC8A4"/><rect x="13" y="8" width="4" height="5" rx="1" fill="#7BC8A4"/></svg></div><div><div style="font-size:12px;font-weight:500;color:#1a1a1a">Parking Marquês Pombal</div><div style="font-size:10px;color:#bbb">19:30 · 2h 15min</div></div></div><div style="text-align:right"><div style="font-size:13px;font-weight:600;color:#1a1a1a">−€3.00</div><div style="font-size:10px;color:#085041;font-weight:500">−€0.50 ahorrado</div></div></div>
+            <div class="tx-f"><div class="tx-fl"><div class="tx-ico" style="background:#2A1A10"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="#EF9F27" stroke-width="1.5" fill="none"/></svg></div><div><div style="font-size:12px;font-weight:500;color:#1a1a1a">McDonald's Drive-thru</div><div style="font-size:10px;color:#bbb">13:10</div></div></div><div style="text-align:right"><div style="font-size:13px;font-weight:600;color:#1a1a1a">−€8.90</div></div></div>
+            <div class="month-h">Lunes</div>
+            <div class="tx-f"><div class="tx-fl"><div class="tx-ico" style="background:#1A3A5C"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><rect x="2" y="8" width="20" height="9" rx="2" fill="#7BC8A4"/><circle cx="8" cy="17" r="2" fill="#7BC8A4"/><circle cx="16" cy="17" r="2" fill="#7BC8A4"/></svg></div><div><div style="font-size:12px;font-weight:500;color:#1a1a1a">Peaje IC19</div><div style="font-size:10px;color:#bbb">08:05</div></div></div><div style="text-align:right"><div style="font-size:13px;font-weight:600;color:#1a1a1a">−€1.80</div><div style="font-size:10px;color:#085041;font-weight:500">−€0.18 ahorrado</div></div></div>
+            <div class="tx-f"><div class="tx-fl"><div class="tx-ico" style="background:#1A2E4A"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M12 2C8 2 5 8 5 13a7 7 0 0 0 14 0c0-5-3-11-7-11z" fill="#F9C46A"/><circle cx="12" cy="13" r="2" fill="#0A1628"/></svg></div><div><div style="font-size:12px;font-weight:500;color:#1a1a1a">BP Cascais</div><div style="font-size:10px;color:#bbb">07:40 · 30L</div></div></div><div style="text-align:right"><div style="font-size:13px;font-weight:600;color:#1a1a1a">−€36.00</div><div style="font-size:10px;color:#085041;font-weight:500">−€1.80 ahorrado</div></div></div>
+            <div class="tx-f"><div class="tx-fl"><div class="tx-ico" style="background:#2A1A10"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="#EF9F27" stroke-width="1.5" fill="none"/></svg></div><div><div style="font-size:12px;font-weight:500;color:#1a1a1a">Burger King Drive</div><div style="font-size:10px;color:#bbb">13:30</div></div></div><div style="text-align:right"><div style="font-size:13px;font-weight:600;color:#1a1a1a">−€7.50</div></div></div>
           </div>
-          <div class="tx-f">
-            <div class="tx-fl"><div class="tx-ico" style="background:#1A2E4A"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M12 2C8 2 5 8 5 13a7 7 0 0 0 14 0c0-5-3-11-7-11z" fill="#F9C46A"/><circle cx="12" cy="13" r="2" fill="#0A1628"/></svg></div><div><div class="tx-fn">Repsol — Lisboa Norte</div><div class="tx-fm">07:52 · 38.2L · Sin parar</div></div></div>
-            <div style="text-align:right"><div class="tx-fa">−€45.00</div><div class="tx-fs">−€2.30 ahorrado</div></div>
+          <div id="hist-toll" style="display:none">
+            <div class="month-h">Hoy</div>
+            <div class="tx-f"><div class="tx-fl"><div class="tx-ico" style="background:#1A3A5C"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><rect x="2" y="8" width="20" height="9" rx="2" fill="#7BC8A4"/><circle cx="8" cy="17" r="2" fill="#7BC8A4"/><circle cx="16" cy="17" r="2" fill="#7BC8A4"/></svg></div><div><div style="font-size:12px;font-weight:500;color:#1a1a1a">Peaje A1 Norte</div><div style="font-size:10px;color:#bbb">08:14 · Automático</div></div></div><div style="text-align:right"><div style="font-size:13px;font-weight:600;color:#1a1a1a">−€2.50</div><div style="font-size:10px;color:#085041;font-weight:500">−€0.25</div></div></div>
+            <div class="month-h">Lunes</div>
+            <div class="tx-f"><div class="tx-fl"><div class="tx-ico" style="background:#1A3A5C"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><rect x="2" y="8" width="20" height="9" rx="2" fill="#7BC8A4"/><circle cx="8" cy="17" r="2" fill="#7BC8A4"/><circle cx="16" cy="17" r="2" fill="#7BC8A4"/></svg></div><div><div style="font-size:12px;font-weight:500;color:#1a1a1a">Peaje IC19</div><div style="font-size:10px;color:#bbb">08:05</div></div></div><div style="text-align:right"><div style="font-size:13px;font-weight:600;color:#1a1a1a">−€1.80</div><div style="font-size:10px;color:#085041;font-weight:500">−€0.18</div></div></div>
+            <div class="tx-f"><div class="tx-fl"><div class="tx-ico" style="background:#1A3A5C"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><rect x="2" y="8" width="20" height="9" rx="2" fill="#7BC8A4"/><circle cx="8" cy="17" r="2" fill="#7BC8A4"/><circle cx="16" cy="17" r="2" fill="#7BC8A4"/></svg></div><div><div style="font-size:12px;font-weight:500;color:#1a1a1a">Peaje A5 Lisboa</div><div style="font-size:10px;color:#bbb">17:22</div></div></div><div style="text-align:right"><div style="font-size:13px;font-weight:600;color:#1a1a1a">−€1.55</div><div style="font-size:10px;color:#085041;font-weight:500">−€0.15</div></div></div>
           </div>
-          <div class="month-h">Ayer</div>
-          <div class="tx-f">
-            <div class="tx-fl"><div class="tx-ico" style="background:#1A3325"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="3" stroke="#7BC8A4" stroke-width="1.5" fill="none"/><rect x="7" y="8" width="4" height="5" rx="1" fill="#7BC8A4"/><rect x="13" y="8" width="4" height="5" rx="1" fill="#7BC8A4"/></svg></div><div><div class="tx-fn">Parking Marquês Pombal</div><div class="tx-fm">19:30 · 2h 15min</div></div></div>
-            <div style="text-align:right"><div class="tx-fa">−€3.00</div><div class="tx-fs">−€0.50 ahorrado</div></div>
+          <div id="hist-fuel" style="display:none">
+            <div class="month-h">Hoy</div>
+            <div class="tx-f"><div class="tx-fl"><div class="tx-ico" style="background:#1A2E4A"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M12 2C8 2 5 8 5 13a7 7 0 0 0 14 0c0-5-3-11-7-11z" fill="#F9C46A"/><circle cx="12" cy="13" r="2" fill="#0A1628"/></svg></div><div><div style="font-size:12px;font-weight:500;color:#1a1a1a">Repsol Lisboa Norte</div><div style="font-size:10px;color:#bbb">07:52 · 38.2L</div></div></div><div style="text-align:right"><div style="font-size:13px;font-weight:600;color:#1a1a1a">−€45.00</div><div style="font-size:10px;color:#085041;font-weight:500">−€2.30</div></div></div>
+            <div class="month-h">Lunes</div>
+            <div class="tx-f"><div class="tx-fl"><div class="tx-ico" style="background:#1A2E4A"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M12 2C8 2 5 8 5 13a7 7 0 0 0 14 0c0-5-3-11-7-11z" fill="#F9C46A"/><circle cx="12" cy="13" r="2" fill="#0A1628"/></svg></div><div><div style="font-size:12px;font-weight:500;color:#1a1a1a">BP Cascais</div><div style="font-size:10px;color:#bbb">07:40 · 30L</div></div></div><div style="text-align:right"><div style="font-size:13px;font-weight:600;color:#1a1a1a">−€36.00</div><div style="font-size:10px;color:#085041;font-weight:500">−€1.80</div></div></div>
           </div>
-          <div class="tx-f">
-            <div class="tx-fl"><div class="tx-ico" style="background:#2A1A10"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="#EF9F27" stroke-width="1.5" fill="none"/></svg></div><div><div class="tx-fn">McDonald's Drive-thru</div><div class="tx-fm">13:10 · Sin bajarse</div></div></div>
-            <div style="text-align:right"><div class="tx-fa">−€8.90</div></div>
+          <div id="hist-parking" style="display:none">
+            <div class="month-h">Ayer</div>
+            <div class="tx-f"><div class="tx-fl"><div class="tx-ico" style="background:#1A3325"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="3" stroke="#7BC8A4" stroke-width="1.5" fill="none"/><rect x="7" y="8" width="4" height="5" rx="1" fill="#7BC8A4"/><rect x="13" y="8" width="4" height="5" rx="1" fill="#7BC8A4"/></svg></div><div><div style="font-size:12px;font-weight:500;color:#1a1a1a">Parking Marquês Pombal</div><div style="font-size:10px;color:#bbb">19:30 · 2h 15min</div></div></div><div style="text-align:right"><div style="font-size:13px;font-weight:600;color:#1a1a1a">−€3.00</div><div style="font-size:10px;color:#085041;font-weight:500">−€0.50</div></div></div>
+            <div class="tx-f"><div class="tx-fl"><div class="tx-ico" style="background:#1A3325"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="3" stroke="#7BC8A4" stroke-width="1.5" fill="none"/><rect x="7" y="8" width="4" height="5" rx="1" fill="#7BC8A4"/><rect x="13" y="8" width="4" height="5" rx="1" fill="#7BC8A4"/></svg></div><div><div style="font-size:12px;font-weight:500;color:#1a1a1a">EasyPark Belém</div><div style="font-size:10px;color:#bbb">10:00 · 1h gratis</div></div></div><div style="text-align:right"><div style="font-size:13px;font-weight:600;color:#1a1a1a">−€1.50</div><div style="font-size:10px;color:#085041;font-weight:500">−€0.50</div></div></div>
           </div>
-          <div class="month-h">Lunes</div>
-          <div class="tx-f">
-            <div class="tx-fl"><div class="tx-ico" style="background:#1A3A5C"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><rect x="2" y="8" width="20" height="9" rx="2" fill="#7BC8A4"/><circle cx="8" cy="17" r="2" fill="#7BC8A4"/><circle cx="16" cy="17" r="2" fill="#7BC8A4"/></svg></div><div><div class="tx-fn">Peaje IC19</div><div class="tx-fm">08:05 · Automático</div></div></div>
-            <div style="text-align:right"><div class="tx-fa">−€1.80</div><div class="tx-fs">−€0.18 ahorrado</div></div>
+          <div id="hist-drive" style="display:none">
+            <div class="month-h">Ayer</div>
+            <div class="tx-f"><div class="tx-fl"><div class="tx-ico" style="background:#2A1A10"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="#EF9F27" stroke-width="1.5" fill="none"/></svg></div><div><div style="font-size:12px;font-weight:500;color:#1a1a1a">McDonald's Drive-thru</div><div style="font-size:10px;color:#bbb">13:10</div></div></div><div style="text-align:right"><div style="font-size:13px;font-weight:600;color:#1a1a1a">−€8.90</div></div></div>
+            <div class="month-h">Lunes</div>
+            <div class="tx-f"><div class="tx-fl"><div class="tx-ico" style="background:#2A1A10"><svg width="13" height="13" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="#EF9F27" stroke-width="1.5" fill="none"/></svg></div><div><div style="font-size:12px;font-weight:500;color:#1a1a1a">Burger King Drive</div><div style="font-size:10px;color:#bbb">13:30</div></div></div><div style="text-align:right"><div style="font-size:13px;font-weight:600;color:#1a1a1a">−€7.50</div></div></div>
           </div>
         </div>
         <div class="bot-nav">
           <div class="ni" onclick="go('home')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M3 12L12 3l9 9" stroke="#bbb" stroke-width="1.5" stroke-linecap="round"/><path d="M5 10v9h5v-5h4v5h5v-9" stroke="#bbb" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="ni-lbl">Home</span></div>
           <div class="ni" onclick="go('history')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2M9 5a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2" stroke="#1566C0" stroke-width="1.5" stroke-linecap="round"/></svg><span class="ni-lbl on">Historial</span></div>
           <div class="ni" onclick="go('loyalty')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 2l3 7h7l-5.5 4.5 2 7L12 17l-6.5 3.5 2-7L2 9h7z" stroke="#bbb" stroke-width="1.5" stroke-linejoin="round" fill="none"/></svg><span class="ni-lbl">Rewards</span></div>
-          <div class="ni"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="#bbb" stroke-width="1.5"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" stroke="#bbb" stroke-width="1.5" stroke-linecap="round"/></svg><span class="ni-lbl">Perfil</span></div>
+          <div class="ni" onclick="go('profile')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="#bbb" stroke-width="1.5"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" stroke="#bbb" stroke-width="1.5" stroke-linecap="round"/></svg><span class="ni-lbl">Perfil</span></div>
         </div>
       </div>
 
-      <!-- SCREEN 7: LOYALTY -->
+      <!-- LOYALTY -->
       <div class="screen" id="s-loyalty">
         <div class="loy-hdr">
           <div style="padding-top:48px;font-size:10px;font-weight:500;color:#7B9FD4;letter-spacing:.08em;margin-bottom:8px">EASYREWARDS</div>
           <div class="loy-card">
-            <div class="loy-top">
-              <div class="loy-medal">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" fill="#C0C0C0"/><path d="M12 7l1.5 3.5H17l-2.8 2 1 3.5L12 14l-3.2 2 1-3.5L7 9.5h3.5z" fill="#fff"/></svg>
-              </div>
-              <div>
-                <div class="loy-name">Nivel Plata</div>
-                <div class="loy-sub">23 usos este mes · 7 para llegar a Oro</div>
-              </div>
-            </div>
+            <div class="loy-top"><div class="loy-medal"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" fill="#C0C0C0"/><path d="M12 7l1.5 3.5H17l-2.8 2 1 3.5L12 14l-3.2 2 1-3.5L7 9.5h3.5z" fill="#fff"/></svg></div><div><div style="font-size:16px;font-weight:600;color:#fff">Nivel Plata</div><div style="font-size:10px;color:#7B9FD4;margin-top:1px">23 usos · 7 para llegar a Oro</div></div></div>
             <div class="prog-track"><div class="prog-fill" style="width:77%"></div></div>
             <div class="prog-lbl"><span>23 usos</span><span>30 → Oro</span></div>
           </div>
         </div>
         <div class="body">
-          <div class="sec">Tu progresión</div>
+          <div class="sec">Toca un nivel para ver sus beneficios</div>
           <div class="tier-grid">
-            <div class="tier-c">
-              <div style="font-size:20px;margin-bottom:4px">&#129353;</div>
-              <div class="tier-name" style="color:#7A3A1A">Bronce</div>
-              <div class="tier-req">1–10 usos</div>
-            </div>
-            <div class="tier-c cur">
-              <div style="font-size:20px;margin-bottom:4px">&#129352;</div>
-              <div class="tier-name" style="color:#3a3a3a">Plata</div>
-              <div class="tier-req">11–30 usos</div>
-            </div>
-            <div class="tier-c">
-              <div style="font-size:20px;margin-bottom:4px">&#129351;</div>
-              <div class="tier-name" style="color:#7A5000">Oro</div>
-              <div class="tier-req">30+ usos</div>
-            </div>
+            <div class="tier-c" onclick="go('tier-bronze')"><div style="font-size:20px;margin-bottom:4px">&#129353;</div><div class="tier-name" style="color:#7A3A1A">Bronce</div><div class="tier-req">1–10 usos</div></div>
+            <div class="tier-c cur" onclick="go('tier-silver')"><div style="font-size:20px;margin-bottom:4px">&#129352;</div><div class="tier-name" style="color:#3a3a3a">Plata ✓</div><div class="tier-req">11–30 usos</div></div>
+            <div class="tier-c" onclick="go('tier-gold')"><div style="font-size:20px;margin-bottom:4px">&#129351;</div><div class="tier-name" style="color:#7A5000">Oro</div><div class="tier-req">30+ usos</div></div>
           </div>
-          <div class="sec">Beneficios activos</div>
+          <div class="sec">Tus beneficios activos</div>
           <div class="card" style="padding:8px 12px">
-            <div class="ben-it" style="padding-top:2px">
-              <div class="ben-ico" style="background:#E6F1FB"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 2C8 2 5 8 5 13a7 7 0 0 0 14 0c0-5-3-11-7-11z" fill="#378ADD"/><circle cx="12" cy="13" r="2" fill="#fff"/></svg></div>
-              <div><div class="ben-t">5% dto. en gasolina</div><div class="ben-s">Estaciones asociadas EasyPay</div></div>
-              <div class="ben-b"><span class="pill g">Activo</span></div>
-            </div>
-            <div class="ben-it">
-              <div class="ben-ico" style="background:#EAF3DE"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="3" stroke="#3B6D11" stroke-width="1.5" fill="none"/><rect x="7" y="8" width="4" height="5" rx="1" fill="#3B6D11"/><rect x="13" y="8" width="4" height="5" rx="1" fill="#3B6D11"/></svg></div>
-              <div><div class="ben-t">1h gratis en parking</div><div class="ben-s">Parkings partner EasyPay</div></div>
-              <div class="ben-b"><span class="pill g">Activo</span></div>
-            </div>
-            <div class="ben-it">
-              <div class="ben-ico" style="background:#E1F5EE"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><rect x="2" y="8" width="20" height="9" rx="2" fill="#1D9E75"/><circle cx="8" cy="17" r="2" fill="#1D9E75"/><circle cx="16" cy="17" r="2" fill="#1D9E75"/></svg></div>
-              <div><div class="ben-t">Cada 10 peajes, 1 gratis</div><div class="ben-s">7/10 completados este ciclo</div></div>
-              <div class="ben-b"><span class="pill b">7 de 10</span></div>
-            </div>
-            <div class="ben-it">
-              <div class="ben-ico" style="background:#F0F0F0"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 2l3 7h7l-5.5 4.5 2 7L12 17l-6.5 3.5 2-7L2 9h7z" stroke="#888" stroke-width="1.5" fill="none"/></svg></div>
-              <div><div class="ben-t">10% dto. en gasolina</div><div class="ben-s">Desbloquea alcanzando Oro</div></div>
-              <div class="ben-b"><span class="pill s">Oro</span></div>
-            </div>
-            <div class="ben-it">
-              <div class="ben-ico" style="background:#F0F0F0"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="3" stroke="#888" stroke-width="1.5" fill="none"/><rect x="7" y="8" width="4" height="5" rx="1" fill="#bbb"/><rect x="13" y="8" width="4" height="5" rx="1" fill="#bbb"/></svg></div>
-              <div><div class="ben-t">Parking ilimitado gratis</div><div class="ben-s">1h gratis en todos los partners</div></div>
-              <div class="ben-b"><span class="pill s">Oro</span></div>
-            </div>
+            <div class="ben-it" style="padding-top:2px"><div class="ben-ico" style="background:#E6F1FB"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 2C8 2 5 8 5 13a7 7 0 0 0 14 0c0-5-3-11-7-11z" fill="#378ADD"/><circle cx="12" cy="13" r="2" fill="#fff"/></svg></div><div><div class="ben-t">5% dto. en gasolina</div><div class="ben-s">Estaciones asociadas EasyPay</div></div><div class="ben-b"><span class="pill g">Activo</span></div></div>
+            <div class="ben-it"><div class="ben-ico" style="background:#EAF3DE"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="3" stroke="#3B6D11" stroke-width="1.5" fill="none"/><rect x="7" y="8" width="4" height="5" rx="1" fill="#3B6D11"/><rect x="13" y="8" width="4" height="5" rx="1" fill="#3B6D11"/></svg></div><div><div class="ben-t">1h gratis en parking</div><div class="ben-s">Parkings partner EasyPay</div></div><div class="ben-b"><span class="pill g">Activo</span></div></div>
+            <div class="ben-it"><div class="ben-ico" style="background:#E1F5EE"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><rect x="2" y="8" width="20" height="9" rx="2" fill="#1D9E75"/><circle cx="8" cy="17" r="2" fill="#1D9E75"/><circle cx="16" cy="17" r="2" fill="#1D9E75"/></svg></div><div><div class="ben-t">Cada 10 peajes, 1 gratis</div><div class="ben-s">7/10 completados</div></div><div class="ben-b"><span class="pill b">7 de 10</span></div></div>
           </div>
         </div>
         <div class="bot-nav">
           <div class="ni" onclick="go('home')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M3 12L12 3l9 9" stroke="#bbb" stroke-width="1.5" stroke-linecap="round"/><path d="M5 10v9h5v-5h4v5h5v-9" stroke="#bbb" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="ni-lbl">Home</span></div>
           <div class="ni" onclick="go('history')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2M9 5a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2" stroke="#bbb" stroke-width="1.5" stroke-linecap="round"/></svg><span class="ni-lbl">Historial</span></div>
           <div class="ni" onclick="go('loyalty')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 2l3 7h7l-5.5 4.5 2 7L12 17l-6.5 3.5 2-7L2 9h7z" stroke="#1566C0" stroke-width="1.5" stroke-linejoin="round" fill="none"/></svg><span class="ni-lbl on">Rewards</span></div>
-          <div class="ni"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="#bbb" stroke-width="1.5"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" stroke="#bbb" stroke-width="1.5" stroke-linecap="round"/></svg><span class="ni-lbl">Perfil</span></div>
+          <div class="ni" onclick="go('profile')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="#bbb" stroke-width="1.5"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" stroke="#bbb" stroke-width="1.5" stroke-linecap="round"/></svg><span class="ni-lbl">Perfil</span></div>
+        </div>
+      </div>
+
+      <!-- TIER BRONZE -->
+      <div class="screen" id="s-tier-bronze">
+        <div class="sb" style="padding-top:52px;background:#3A1008"></div>
+        <div class="hdr" style="background:#3A1008"><div class="back-btn" onclick="go('loyalty')">← EasyRewards</div><div style="display:flex;align-items:center;gap:10px;margin-bottom:4px"><span style="font-size:22px">&#129353;</span><div class="hdr-t">Nivel Bronce</div></div><div class="hdr-s">1 a 10 usos al mes</div></div>
+        <div class="body">
+          <div class="sec">Beneficios incluidos</div>
+          <div class="card" style="padding:8px 12px">
+            <div class="ben-it" style="padding-top:2px"><div class="ben-ico" style="background:#E6F1FB"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 2C8 2 5 8 5 13a7 7 0 0 0 14 0c0-5-3-11-7-11z" fill="#378ADD"/><circle cx="12" cy="13" r="2" fill="#fff"/></svg></div><div><div class="ben-t">2% dto. en gasolina</div><div class="ben-s">Estaciones EasyPay partner</div></div><div class="ben-b"><span class="pill bronze">Bronce</span></div></div>
+            <div class="ben-it"><div class="ben-ico" style="background:#E1F5EE"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><rect x="2" y="8" width="20" height="9" rx="2" fill="#1D9E75"/><circle cx="8" cy="17" r="2" fill="#1D9E75"/><circle cx="16" cy="17" r="2" fill="#1D9E75"/></svg></div><div><div class="ben-t">Cada 10 peajes, 1 gratis</div><div class="ben-s">Acumulas desde el primer uso</div></div><div class="ben-b"><span class="pill bronze">Bronce</span></div></div>
+            <div class="ben-it"><div class="ben-ico" style="background:#FAEEDA"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2" stroke="#854F0B" stroke-width="1.5"/><rect x="9" y="3" width="6" height="4" rx="1" stroke="#854F0B" stroke-width="1.5"/></svg></div><div><div class="ben-t">Historial completo</div><div class="ben-s">Todos tus movimientos y ahorros</div></div><div class="ben-b"><span class="pill bronze">Bronce</span></div></div>
+          </div>
+          <div style="background:#FAEEE4;border-radius:12px;padding:12px 14px;margin-top:4px"><div style="font-size:11px;font-weight:500;color:#7A3A1A;margin-bottom:3px">Para subir a Plata</div><div style="font-size:10px;color:#993C1D">Usa EasyPay 11 veces en un mes y desbloqueas 5% en gasolina, 1h parking gratis y más.</div></div>
+        </div>
+      </div>
+
+      <!-- TIER SILVER -->
+      <div class="screen" id="s-tier-silver">
+        <div class="sb" style="padding-top:52px;background:#1A2A3A"></div>
+        <div class="hdr" style="background:#1A2A3A"><div class="back-btn" onclick="go('loyalty')">← EasyRewards</div><div style="display:flex;align-items:center;gap:10px;margin-bottom:4px"><span style="font-size:22px">&#129352;</span><div class="hdr-t">Nivel Plata</div><span style="font-size:10px;background:#7BC8A4;color:#04342C;padding:2px 8px;border-radius:10px;font-weight:600">Tu nivel</span></div><div class="hdr-s">11 a 30 usos al mes</div></div>
+        <div class="body">
+          <div class="sec">Tus beneficios</div>
+          <div class="card" style="padding:8px 12px">
+            <div class="ben-it" style="padding-top:2px"><div class="ben-ico" style="background:#E6F1FB"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 2C8 2 5 8 5 13a7 7 0 0 0 14 0c0-5-3-11-7-11z" fill="#378ADD"/><circle cx="12" cy="13" r="2" fill="#fff"/></svg></div><div><div class="ben-t">5% dto. en gasolina</div><div class="ben-s">Estaciones EasyPay partner</div></div><div class="ben-b"><span class="pill g">Activo</span></div></div>
+            <div class="ben-it"><div class="ben-ico" style="background:#EAF3DE"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="3" stroke="#3B6D11" stroke-width="1.5" fill="none"/><rect x="7" y="8" width="4" height="5" rx="1" fill="#3B6D11"/><rect x="13" y="8" width="4" height="5" rx="1" fill="#3B6D11"/></svg></div><div><div class="ben-t">1h gratis en parking</div><div class="ben-s">Parkings partner EasyPay</div></div><div class="ben-b"><span class="pill g">Activo</span></div></div>
+            <div class="ben-it"><div class="ben-ico" style="background:#E1F5EE"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><rect x="2" y="8" width="20" height="9" rx="2" fill="#1D9E75"/><circle cx="8" cy="17" r="2" fill="#1D9E75"/><circle cx="16" cy="17" r="2" fill="#1D9E75"/></svg></div><div><div class="ben-t">Cada 10 peajes, 1 gratis</div><div class="ben-s">7/10 completados</div></div><div class="ben-b"><span class="pill b">7 de 10</span></div></div>
+            <div class="ben-it"><div class="ben-ico" style="background:#FAEEDA"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 2l3 7h7l-5.5 4.5 2 7L12 17l-6.5 3.5 2-7L2 9h7z" stroke="#854F0B" stroke-width="1.5" fill="none"/></svg></div><div><div class="ben-t">Soporte prioritario</div><div class="ben-s">Respuesta en menos de 2 horas</div></div><div class="ben-b"><span class="pill g">Activo</span></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TIER GOLD -->
+      <div class="screen" id="s-tier-gold">
+        <div class="sb" style="padding-top:52px;background:#2A1A00"></div>
+        <div class="hdr" style="background:#2A1A00"><div class="back-btn" onclick="go('loyalty')">← EasyRewards</div><div style="display:flex;align-items:center;gap:10px;margin-bottom:4px"><span style="font-size:22px">&#129351;</span><div class="hdr-t">Nivel Oro</div></div><div class="hdr-s">30+ usos al mes · Faltan 7 usos</div></div>
+        <div class="body">
+          <div style="background:#FFF3CC;border-radius:12px;padding:12px 14px;margin-bottom:10px;border:1px solid #EF9F27"><div style="font-size:11px;font-weight:600;color:#7A5000;margin-bottom:2px">Estás a 7 usos de Oro</div><div style="font-size:10px;color:#854F0B">Usa EasyPay 7 veces más este mes para desbloquear todos estos beneficios.</div></div>
+          <div class="sec">Beneficios del nivel Oro</div>
+          <div class="card" style="padding:8px 12px">
+            <div class="ben-it" style="padding-top:2px"><div class="ben-ico" style="background:#FAEEDA"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 2C8 2 5 8 5 13a7 7 0 0 0 14 0c0-5-3-11-7-11z" fill="#BA7517"/><circle cx="12" cy="13" r="2" fill="#fff"/></svg></div><div><div class="ben-t">10% dto. en gasolina</div><div class="ben-s">El doble que en Plata</div></div><div class="ben-b"><span class="pill gold">Oro</span></div></div>
+            <div class="ben-it"><div class="ben-ico" style="background:#EAF3DE"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="3" stroke="#3B6D11" stroke-width="1.5" fill="none"/><rect x="7" y="8" width="4" height="5" rx="1" fill="#3B6D11"/><rect x="13" y="8" width="4" height="5" rx="1" fill="#3B6D11"/></svg></div><div><div class="ben-t">2h gratis en parking</div><div class="ben-s">Todos los parkings EasyPay</div></div><div class="ben-b"><span class="pill gold">Oro</span></div></div>
+            <div class="ben-it"><div class="ben-ico" style="background:#E1F5EE"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><rect x="2" y="8" width="20" height="9" rx="2" fill="#1D9E75"/><circle cx="8" cy="17" r="2" fill="#1D9E75"/><circle cx="16" cy="17" r="2" fill="#1D9E75"/></svg></div><div><div class="ben-t">Cada 5 peajes, 1 gratis</div><div class="ben-s">Ritmo doble que en Plata</div></div><div class="ben-b"><span class="pill gold">Oro</span></div></div>
+            <div class="ben-it"><div class="ben-ico" style="background:#FAEEDA"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 2l3 7h7l-5.5 4.5 2 7L12 17l-6.5 3.5 2-7L2 9h7z" stroke="#854F0B" stroke-width="1.5" fill="none"/></svg></div><div><div class="ben-t">Gestor personal</div><div class="ben-s">Atención dedicada 24/7</div></div><div class="ben-b"><span class="pill gold">Oro</span></div></div>
+            <div class="ben-it"><div class="ben-ico" style="background:#E6F1FB"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="#185FA5" stroke-width="1.5" fill="none"/></svg></div><div><div class="ben-t">5% dto. en drive-thru</div><div class="ben-s">McDonald's, BK y partners</div></div><div class="ben-b"><span class="pill gold">Oro</span></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROFILE -->
+      <div class="screen" id="s-profile">
+        <div class="prof-hdr">
+          <div class="prof-avatar">FP</div>
+          <div style="font-size:16px;font-weight:600;color:#fff;margin-bottom:2px">Franco Parodi</div>
+          <div style="font-size:11px;color:#7B9FD4">franco.parodi@email.com</div>
+          <div style="margin-top:10px"><span class="pill" style="background:rgba(123,200,164,.15);color:#7BC8A4">&#129352; Nivel Plata · 23 usos</span></div>
+        </div>
+        <div class="body">
+          <div class="sec">Cuenta</div>
+          <div class="card" style="padding:4px 12px">
+            <div class="prof-row"><div class="prof-ico" style="background:#E6F1FB"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><rect x="2" y="5" width="20" height="14" rx="2" stroke="#185FA5" stroke-width="1.5"/><path d="M2 9l10 6 10-6" stroke="#185FA5" stroke-width="1.5"/></svg></div><div><div style="font-size:12px;font-weight:500;color:#1a1a1a">Correo electrónico</div><div style="font-size:10px;color:#999">franco.parodi@email.com</div></div><div style="margin-left:auto;color:#ccc;font-size:14px">›</div></div>
+            <div class="prof-row"><div class="prof-ico" style="background:#EAF3DE"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><rect x="5" y="2" width="14" height="20" rx="2" stroke="#3B6D11" stroke-width="1.5"/><circle cx="12" cy="17" r="1" fill="#3B6D11"/></svg></div><div><div style="font-size:12px;font-weight:500;color:#1a1a1a">Teléfono</div><div style="font-size:10px;color:#999">+34 612 345 678</div></div><div style="margin-left:auto;color:#ccc;font-size:14px">›</div></div>
+            <div class="prof-row"><div class="prof-ico" style="background:#F0F0F0"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><rect x="3" y="11" width="18" height="11" rx="2" stroke="#555" stroke-width="1.5"/><path d="M7 11V7a5 5 0 0 1 10 0v4" stroke="#555" stroke-width="1.5" stroke-linecap="round"/></svg></div><div><div style="font-size:12px;font-weight:500;color:#1a1a1a">Cambiar contraseña</div><div style="font-size:10px;color:#999">Última modificación: hace 3 meses</div></div><div style="margin-left:auto;color:#ccc;font-size:14px">›</div></div>
+          </div>
+          <div class="sec">Pagos</div>
+          <div class="card" style="padding:4px 12px">
+            <div class="prof-row"><div class="prof-ico" style="background:#1A3A5C"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><rect x="2" y="5" width="20" height="14" rx="2" stroke="#7BC8A4" stroke-width="1.5"/><rect x="2" y="9" width="20" height="3" fill="#7BC8A4" opacity=".3"/></svg></div><div><div style="font-size:12px;font-weight:500;color:#1a1a1a">Tarjetas vinculadas</div><div style="font-size:10px;color:#999">Visa •••• 4521 · Principal</div></div><div style="margin-left:auto;color:#ccc;font-size:14px">›</div></div>
+            <div class="prof-row"><div class="prof-ico" style="background:#E1F5EE"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#085041" stroke-width="1.5"/><path d="M12 7v5l3 3" stroke="#085041" stroke-width="1.5" stroke-linecap="round"/></svg></div><div><div style="font-size:12px;font-weight:500;color:#1a1a1a">Saldo prepago (wallet)</div><div style="font-size:10px;color:#999">€45.00 disponibles</div></div><div style="margin-left:auto;color:#ccc;font-size:14px">›</div></div>
+            <div class="prof-row"><div class="prof-ico" style="background:#FAEEDA"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2" stroke="#854F0B" stroke-width="1.5"/><rect x="9" y="3" width="6" height="4" rx="1" stroke="#854F0B" stroke-width="1.5"/></svg></div><div><div style="font-size:12px;font-weight:500;color:#1a1a1a">Facturación y recibos</div><div style="font-size:10px;color:#999">Descarga tus facturas</div></div><div style="margin-left:auto;color:#ccc;font-size:14px">›</div></div>
+          </div>
+          <div class="sec">Preferencias</div>
+          <div class="card" style="padding:4px 12px">
+            <div class="prof-row" onclick="go('services')"><div class="prof-ico" style="background:#1A3A5C"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><rect x="2" y="8" width="20" height="9" rx="2" fill="#7BC8A4" opacity=".5"/><circle cx="8" cy="17" r="2" fill="#7BC8A4"/><circle cx="16" cy="17" r="2" fill="#7BC8A4"/></svg></div><div><div style="font-size:12px;font-weight:500;color:#1a1a1a">Servicios activados</div><div style="font-size:10px;color:#999">Peajes, gasolina, parking, drive-thru</div></div><div style="margin-left:auto;color:#ccc;font-size:14px">›</div></div>
+            <div class="prof-row" onclick="toggleNotif(this)"><div class="prof-ico" style="background:#F0F0F0"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" stroke="#555" stroke-width="1.5"/><path d="M13.73 21a2 2 0 0 1-3.46 0" stroke="#555" stroke-width="1.5" stroke-linecap="round"/></svg></div><div><div style="font-size:12px;font-weight:500;color:#1a1a1a">Notificaciones</div><div id="notif-sub" style="font-size:10px;color:#999">Push activado · Cada pago</div></div><div class="toggle-tr" id="notif-toggle" data-on="true" style="margin-left:auto;flex-shrink:0"><div class="toggle-th"></div></div></div>
+            <div class="prof-row"><div class="prof-ico" style="background:#F0F0F0"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="#555" stroke-width="1.5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14" stroke="#555" stroke-width="1.5" stroke-linecap="round"/></svg></div><div><div style="font-size:12px;font-weight:500;color:#1a1a1a">Idioma y región</div><div style="font-size:10px;color:#999">Español · Europa (€)</div></div><div style="margin-left:auto;color:#ccc;font-size:14px">›</div></div>
+            <div class="prof-row" onclick="showLogout()"><div class="prof-ico" style="background:#FCEBEB"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9" stroke="#A32D2D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><div style="font-size:12px;font-weight:500;color:#A32D2D">Cerrar sesión</div></div><div style="margin-left:auto;color:#A32D2D;font-size:14px">›</div></div>
+          </div>
+          <!-- logout confirm -->
+          <div id="logout-confirm" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:999;display:none;align-items:center;justify-content:center">
+            <div style="background:#fff;border-radius:16px;padding:20px;margin:0 20px;text-align:center">
+              <div style="font-size:14px;font-weight:600;color:#1a1a1a;margin-bottom:6px">¿Cerrar sesión?</div>
+              <div style="font-size:11px;color:#888;margin-bottom:16px">Se cerrará tu sesión en este dispositivo.</div>
+              <div style="display:flex;gap:8px">
+                <div onclick="hideLogout()" style="flex:1;padding:10px;border-radius:10px;border:0.5px solid #ddd;font-size:12px;font-weight:500;color:#555;cursor:pointer;text-align:center">Cancelar</div>
+                <div onclick="go('ob');hideLogout()" style="flex:1;padding:10px;border-radius:10px;background:#A32D2D;font-size:12px;font-weight:600;color:#fff;cursor:pointer;text-align:center">Cerrar sesión</div>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+        <div class="bot-nav">
+          <div class="ni" onclick="go('home')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M3 12L12 3l9 9" stroke="#bbb" stroke-width="1.5" stroke-linecap="round"/><path d="M5 10v9h5v-5h4v5h5v-9" stroke="#bbb" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="ni-lbl">Home</span></div>
+          <div class="ni" onclick="go('history')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2M9 5a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2" stroke="#bbb" stroke-width="1.5" stroke-linecap="round"/></svg><span class="ni-lbl">Historial</span></div>
+          <div class="ni" onclick="go('loyalty')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 2l3 7h7l-5.5 4.5 2 7L12 17l-6.5 3.5 2-7L2 9h7z" stroke="#bbb" stroke-width="1.5" stroke-linejoin="round" fill="none"/></svg><span class="ni-lbl">Rewards</span></div>
+          <div class="ni" onclick="go('profile')"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="#1566C0" stroke-width="1.5"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" stroke="#1566C0" stroke-width="1.5" stroke-linecap="round"/></svg><span class="ni-lbl on">Perfil</span></div>
+        </div>
+      </div>
+
+      <!-- PARTNERS TOLL -->
+      <div class="screen" id="s-partners-toll">
+        <div class="sb" style="padding-top:52px"></div>
+        <div class="hdr"><div class="back-btn" onclick="go('home')">← Home</div><div class="hdr-t">Peajes</div><div class="hdr-s">Autopistas integradas con EasyPay</div></div>
+        <div class="body">
+          <div class="nearest-banner"><div class="nearest-dot"></div><div><div style="font-size:11px;font-weight:500;color:#fff">Peaje más cercano</div><div style="font-size:10px;color:#7B9FD4">A1 Norte · a 2.1 km</div></div></div>
+          <div class="sec">Partners activos</div>
+          <div class="brand-card"><div class="brand-logo" style="background:#1A3A5C;color:#7BC8A4">A1</div><div><div class="brand-name">Autopista A1</div><div class="brand-type">Lisboa — Porto · 7 peajes</div></div><div style="margin-left:auto;text-align:right"><div style="font-size:12px;font-weight:600;color:#1566C0">2.1 km</div><div style="font-size:9px;color:#bbb">más cercano</div></div></div>
+          <div class="brand-card"><div class="brand-logo" style="background:#1A3A5C;color:#7BC8A4">A5</div><div><div class="brand-name">Autopista A5</div><div class="brand-type">Lisboa — Cascais · 4 peajes</div></div><div style="margin-left:auto;text-align:right"><div style="font-size:12px;font-weight:600;color:#1566C0">5.4 km</div><div style="font-size:9px;color:#bbb">más cercano</div></div></div>
+          <div class="brand-card"><div class="brand-logo" style="background:#1A3A5C;color:#7BC8A4">IC</div><div><div class="brand-name">IC19 / CRIL</div><div class="brand-type">Lisboa orbital · 3 peajes</div></div><div style="margin-left:auto;text-align:right"><div style="font-size:12px;font-weight:600;color:#1566C0">7.8 km</div><div style="font-size:9px;color:#bbb">más cercano</div></div></div>
+          <div class="brand-card"><div class="brand-logo" style="background:#0C447C;color:#B5D4F4">A9</div><div><div class="brand-name">Autopista A9</div><div class="brand-type">CREL — Coimbra · 5 peajes</div></div><div style="margin-left:auto;text-align:right"><div style="font-size:12px;font-weight:600;color:#1566C0">12 km</div><div style="font-size:9px;color:#bbb">más cercano</div></div></div>
+          <div style="background:#E6F1FB;border-radius:11px;padding:11px 13px;margin-top:4px"><div style="font-size:11px;font-weight:500;color:#0C447C;margin-bottom:2px">Cobertura total</div><div style="font-size:10px;color:#185FA5">EasyPay funciona en el 94% de los peajes portugueses y en toda la red de autopistas españolas de pago.</div></div>
+        </div>
+      </div>
+
+      <!-- PARTNERS FUEL -->
+      <div class="screen" id="s-partners-fuel">
+        <div class="sb" style="padding-top:52px"></div>
+        <div class="hdr"><div class="back-btn" onclick="go('home')">← Home</div><div class="hdr-t">Gasolineras</div><div class="hdr-s">Estaciones integradas con EasyPay</div></div>
+        <div class="body">
+          <div class="nearest-banner"><div class="nearest-dot"></div><div><div style="font-size:11px;font-weight:500;color:#fff">Más cercana</div><div style="font-size:10px;color:#7B9FD4">Repsol Av. Liberdade · 0.8 km</div></div></div>
+          <div class="sec">Partners activos</div>
+          <div class="brand-card"><div class="brand-logo" style="background:#CC0000;color:#fff;font-size:9px">REP</div><div><div class="brand-name">Repsol</div><div class="brand-type">312 estaciones · España y Portugal</div></div><div style="margin-left:auto;text-align:right"><div style="font-size:12px;font-weight:600;color:#1566C0">0.8 km</div><div style="font-size:9px;color:#bbb">más cercana</div></div></div>
+          <div class="brand-card"><div class="brand-logo" style="background:#007A33;color:#fff;font-size:9px">BP</div><div><div class="brand-name">BP</div><div class="brand-type">204 estaciones · España y Portugal</div></div><div style="margin-left:auto;text-align:right"><div style="font-size:12px;font-weight:600;color:#1566C0">1.4 km</div><div style="font-size:9px;color:#bbb">más cercana</div></div></div>
+          <div class="brand-card"><div class="brand-logo" style="background:#F90;color:#fff;font-size:9px">SHL</div><div><div class="brand-name">Shell</div><div class="brand-type">178 estaciones · España</div></div><div style="margin-left:auto;text-align:right"><div style="font-size:12px;font-weight:600;color:#1566C0">3.2 km</div><div style="font-size:9px;color:#bbb">más cercana</div></div></div>
+          <div class="brand-card"><div class="brand-logo" style="background:#003087;color:#fff;font-size:9px">GAL</div><div><div class="brand-name">Galp</div><div class="brand-type">290 estaciones · Portugal</div></div><div style="margin-left:auto;text-align:right"><div style="font-size:12px;font-weight:600;color:#1566C0">3.9 km</div><div style="font-size:9px;color:#bbb">más cercana</div></div></div>
+          <div class="brand-card"><div class="brand-logo" style="background:#E30613;color:#fff;font-size:9px">CPY</div><div><div class="brand-name">Cepsa</div><div class="brand-type">260 estaciones · España</div></div><div style="margin-left:auto;text-align:right"><div style="font-size:12px;font-weight:600;color:#1566C0">5.1 km</div><div style="font-size:9px;color:#bbb">más cercana</div></div></div>
+          <div style="background:#E1F5EE;border-radius:11px;padding:11px 13px;margin-top:4px"><div style="font-size:11px;font-weight:500;color:#085041;margin-bottom:2px">5% de descuento · Nivel Plata</div><div style="font-size:10px;color:#0F6E56">Tu descuento se aplica automáticamente en todas estas estaciones. Sin cupones.</div></div>
+        </div>
+      </div>
+
+      <!-- PARTNERS PARKING -->
+      <div class="screen" id="s-partners-parking">
+        <div class="sb" style="padding-top:52px"></div>
+        <div class="hdr"><div class="back-btn" onclick="go('home')">← Home</div><div class="hdr-t">Parking</div><div class="hdr-s">Estacionamientos con acceso automático</div></div>
+        <div class="body">
+          <div class="nearest-banner"><div class="nearest-dot"></div><div><div style="font-size:11px;font-weight:500;color:#fff">Más cercano</div><div style="font-size:10px;color:#7B9FD4">EasyPark Marquês · 0.3 km · 1h gratis</div></div></div>
+          <div class="sec">Partners activos</div>
+          <div class="brand-card"><div class="brand-logo" style="background:#1A3325;color:#7BC8A4;font-size:9px">EP</div><div><div class="brand-name">EasyPark</div><div class="brand-type">45 parkings · Zona centro</div></div><div style="margin-left:auto;text-align:right"><div style="font-size:12px;font-weight:600;color:#1566C0">0.3 km</div><div style="font-size:9px;color:#bbb">más cercano</div></div></div>
+          <div class="brand-card"><div class="brand-logo" style="background:#333;color:#fff;font-size:9px">SA</div><div><div class="brand-name">Saba Aparcamientos</div><div class="brand-type">120 parkings · España</div></div><div style="margin-left:auto;text-align:right"><div style="font-size:12px;font-weight:600;color:#1566C0">2.7 km</div><div style="font-size:9px;color:#bbb">más cercano</div></div></div>
+          <div class="brand-card"><div class="brand-logo" style="background:#005CA9;color:#fff;font-size:9px">IND</div><div><div class="brand-name">Indigo Park</div><div class="brand-type">88 parkings · España y Portugal</div></div><div style="margin-left:auto;text-align:right"><div style="font-size:12px;font-weight:600;color:#1566C0">4.0 km</div><div style="font-size:9px;color:#bbb">más cercano</div></div></div>
+          <div style="background:#E1F5EE;border-radius:11px;padding:11px 13px;margin-top:4px"><div style="font-size:11px;font-weight:500;color:#085041;margin-bottom:2px">1h gratis · Nivel Plata</div><div style="font-size:10px;color:#0F6E56">Tu primera hora es gratis en todos los parkings marcados con EasyPay.</div></div>
+        </div>
+      </div>
+
+      <!-- PARTNERS DRIVE -->
+      <div class="screen" id="s-partners-drive">
+        <div class="sb" style="padding-top:52px"></div>
+        <div class="hdr"><div class="back-btn" onclick="go('home')">← Home</div><div class="hdr-t">Drive-thru</div><div class="hdr-s">Paga sin parar y sin sacar la tarjeta</div></div>
+        <div class="body">
+          <div class="nearest-banner"><div class="nearest-dot"></div><div><div style="font-size:11px;font-weight:500;color:#fff">Más cercano</div><div style="font-size:10px;color:#7B9FD4">McDonald's Av. Roma · 1.1 km</div></div></div>
+          <div class="sec">Partners activos</div>
+          <div class="brand-card"><div class="brand-logo" style="background:#FBC209;color:#DA291C;font-weight:800">M</div><div><div class="brand-name">McDonald's</div><div class="brand-type">38 locales con drive-thru</div></div><div style="margin-left:auto;text-align:right"><div style="font-size:12px;font-weight:600;color:#1566C0">1.1 km</div><div style="font-size:9px;color:#bbb">más cercano</div></div></div>
+          <div class="brand-card"><div class="brand-logo" style="background:#D62300;color:#fff;font-size:9px">BK</div><div><div class="brand-name">Burger King</div><div class="brand-type">22 locales con drive-thru</div></div><div style="margin-left:auto;text-align:right"><div style="font-size:12px;font-weight:600;color:#1566C0">2.3 km</div><div style="font-size:9px;color:#bbb">más cercano</div></div></div>
+          <div class="brand-card"><div class="brand-logo" style="background:#E4002B;color:#fff;font-size:9px">KFC</div><div><div class="brand-name">KFC</div><div class="brand-type">15 locales con drive-thru</div></div><div style="margin-left:auto;text-align:right"><div style="font-size:12px;font-weight:600;color:#1566C0">3.8 km</div><div style="font-size:9px;color:#bbb">más cercano</div></div></div>
+          <div class="brand-card"><div class="brand-logo" style="background:#009B3A;color:#fff;font-size:9px">SBX</div><div><div class="brand-name">Starbucks</div><div class="brand-type">8 locales con drive-thru</div></div><div style="margin-left:auto;text-align:right"><div style="font-size:12px;font-weight:600;color:#1566C0">5.2 km</div><div style="font-size:9px;color:#bbb">más cercano</div></div></div>
+          <div style="background:#FAEEDA;border-radius:11px;padding:11px 13px;margin-top:4px"><div style="font-size:11px;font-weight:500;color:#633806;margin-bottom:2px">Próximamente más partners</div><div style="font-size:10px;color:#854F0B">Integrando Telepizza, Domino's y más cadenas en las próximas semanas.</div></div>
+        </div>
+      </div>
+
+      <!-- SAVINGS HISTORY -->
+      <div class="screen" id="s-savings-history">
+        <div class="sb" style="padding-top:52px"></div>
+        <div class="hdr"><div class="back-btn" onclick="go('history')">← Movimientos</div><div class="hdr-t">Tu ahorro total</div><div class="hdr-s">Desde que usas EasyPay</div></div>
+        <div class="body">
+          <div class="sav-total">
+            <div style="font-size:10px;color:#7B9FD4;margin-bottom:4px">Ahorro acumulado total</div>
+            <div style="font-size:28px;font-weight:600;color:#7BC8A4">€67.30</div>
+            <div style="font-size:10px;color:#7B9FD4;margin-top:2px">Desde febrero 2024 · 14 meses</div>
+          </div>
+          <div class="sec">Ahorro por mes</div>
+          <div class="bar-wrap">
+            <div class="bar-row"><div style="font-size:10px;color:#999;width:36px;flex-shrink:0">Abr 25</div><div class="bar-bg"><div class="bar-fill" style="width:82%"></div></div><div style="font-size:10px;font-weight:600;color:#085041;width:38px;text-align:right;flex-shrink:0">€12.40</div></div>
+            <div class="bar-row"><div style="font-size:10px;color:#999;width:36px;flex-shrink:0">Mar 25</div><div class="bar-bg"><div class="bar-fill" style="width:68%"></div></div><div style="font-size:10px;font-weight:600;color:#085041;width:38px;text-align:right;flex-shrink:0">€10.20</div></div>
+            <div class="bar-row"><div style="font-size:10px;color:#999;width:36px;flex-shrink:0">Feb 25</div><div class="bar-bg"><div class="bar-fill" style="width:55%"></div></div><div style="font-size:10px;font-weight:600;color:#085041;width:38px;text-align:right;flex-shrink:0">€8.30</div></div>
+            <div class="bar-row"><div style="font-size:10px;color:#999;width:36px;flex-shrink:0">Ene 25</div><div class="bar-bg"><div class="bar-fill" style="width:60%"></div></div><div style="font-size:10px;font-weight:600;color:#085041;width:38px;text-align:right;flex-shrink:0">€9.10</div></div>
+            <div class="bar-row"><div style="font-size:10px;color:#999;width:36px;flex-shrink:0">Dic 24</div><div class="bar-bg"><div class="bar-fill" style="width:45%"></div></div><div style="font-size:10px;font-weight:600;color:#085041;width:38px;text-align:right;flex-shrink:0">€6.80</div></div>
+            <div class="bar-row"><div style="font-size:10px;color:#999;width:36px;flex-shrink:0">Nov 24</div><div class="bar-bg"><div class="bar-fill" style="width:40%"></div></div><div style="font-size:10px;font-weight:600;color:#085041;width:38px;text-align:right;flex-shrink:0">€6.00</div></div>
+            <div class="bar-row"><div style="font-size:10px;color:#999;width:36px;flex-shrink:0">Oct 24</div><div class="bar-bg"><div class="bar-fill" style="width:35%"></div></div><div style="font-size:10px;font-weight:600;color:#085041;width:38px;text-align:right;flex-shrink:0">€5.30</div></div>
+            <div class="bar-row" style="margin-bottom:0"><div style="font-size:10px;color:#999;width:36px;flex-shrink:0">Sep 24</div><div class="bar-bg"><div class="bar-fill" style="width:30%"></div></div><div style="font-size:10px;font-weight:600;color:#085041;width:38px;text-align:right;flex-shrink:0">€4.50</div></div>
+          </div>
+          <div class="sec">Desglose por categoría</div>
+          <div class="bdown">
+            <div class="bdr"><div style="display:flex;align-items:center;gap:7px"><div style="width:10px;height:10px;border-radius:3px;background:#1A2E4A"></div><div style="font-size:11px;color:#555">Gasolina</div></div><div style="font-size:11px;font-weight:600;color:#085041">€31.50</div></div>
+            <div class="bdr"><div style="display:flex;align-items:center;gap:7px"><div style="width:10px;height:10px;border-radius:3px;background:#1A3A5C"></div><div style="font-size:11px;color:#555">Peajes</div></div><div style="font-size:11px;font-weight:600;color:#085041">€18.40</div></div>
+            <div class="bdr"><div style="display:flex;align-items:center;gap:7px"><div style="width:10px;height:10px;border-radius:3px;background:#1A3325"></div><div style="font-size:11px;color:#555">Parking</div></div><div style="font-size:11px;font-weight:600;color:#085041">€14.20</div></div>
+            <div class="bdr"><div style="display:flex;align-items:center;gap:7px"><div style="width:10px;height:10px;border-radius:3px;background:#2A1A10"></div><div style="font-size:11px;color:#555">Drive-thru</div></div><div style="font-size:11px;font-weight:600;color:#085041">€3.20</div></div>
+          </div>
         </div>
       </div>
 
@@ -529,6 +565,7 @@ body{font-family:'DM Sans',sans-serif;background:#F0EEE9;min-height:100vh;displa
   <button class="np" onclick="go('home')">Home</button>
   <button class="np" onclick="go('history')">Historial</button>
   <button class="np" onclick="go('loyalty')">EasyRewards</button>
+  <button class="np" onclick="go('profile')">Perfil</button>
 </div>
 
 <script>
@@ -537,9 +574,67 @@ function go(id){
   document.querySelectorAll('.np').forEach(function(b){b.classList.remove('on');});
   var el=document.getElementById('s-'+id);
   if(el)el.classList.add('active');
-  var map={ob:0,login:1,register:2,services:3,home:4,history:5,loyalty:6};
+  var map={ob:0,login:1,register:2,services:3,home:4,history:5,loyalty:6,profile:7};
   var btns=document.querySelectorAll('.np');
-  if(btns[map[id]])btns[map[id]].classList.add('on');
+  if(map[id]!==undefined&&btns[map[id]])btns[map[id]].classList.add('on');
+}
+function toggleNotif(row){
+  var tr=document.getElementById('notif-toggle');
+  var sub=document.getElementById('notif-sub');
+  if(!tr)return;
+  var isOn=tr.getAttribute('data-on')==='true';
+  var th=tr.querySelector('.toggle-th');
+  if(isOn){
+    tr.classList.add('off');tr.setAttribute('data-on','false');
+    if(th){th.classList.add('off');th.style.marginLeft='0';th.style.marginRight='auto';}
+    if(sub)sub.textContent='Notificaciones desactivadas';
+  } else {
+    tr.classList.remove('off');tr.setAttribute('data-on','true');
+    if(th){th.classList.remove('off');th.style.marginLeft='auto';th.style.marginRight='0';}
+    if(sub)sub.textContent='Push activado · Cada pago';
+  }
+}
+function showLogout(){
+  var d=document.getElementById('logout-confirm');
+  if(d){d.style.display='flex';}
+}
+function hideLogout(){
+  var d=document.getElementById('logout-confirm');
+  if(d){d.style.display='none';}
+}
+function toggleSvc(row){
+  var tr=row.querySelector('.toggle-tr');
+  var th=row.querySelector('.toggle-th');
+  if(!tr)return;
+  var isOn=tr.getAttribute('data-on')==='true';
+  if(isOn){
+    tr.classList.add('off');tr.setAttribute('data-on','false');
+    th.classList.add('off');th.style.marginLeft='0';th.style.marginRight='auto';
+  } else {
+    tr.classList.remove('off');tr.setAttribute('data-on','true');
+    th.classList.remove('off');th.style.marginLeft='auto';th.style.marginRight='0';
+  }
+  var msg=document.getElementById('svc-saved-msg');
+  if(msg)msg.style.display='none';
+}
+function saveSvc(){
+  var btn=document.getElementById('svc-save-btn');
+  var msg=document.getElementById('svc-saved-msg');
+  if(btn)btn.style.display='none';
+  if(msg)msg.style.display='block';
+  setTimeout(function(){
+    if(btn)btn.style.display='block';
+    if(msg)msg.style.display='none';
+    go('home');
+  },1400);
+}
+function filterHist(el,type){
+  document.querySelectorAll('#hist-filters .fp').forEach(function(f){f.classList.remove('on');});
+  el.classList.add('on');
+  ['all','toll','fuel','parking','drive'].forEach(function(t){
+    var d=document.getElementById('hist-'+t);
+    if(d)d.style.display=(t===type)?'block':'none';
+  });
 }
 </script>
 </body>
